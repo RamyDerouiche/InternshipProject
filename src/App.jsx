@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Navbar from './components/navbar';
 import Features from './components/Features';
@@ -10,14 +9,9 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-
-      </Routes>
-    </>
+    <div>
+      <h1>This is a test/</h1>
+    </div>
   );
 }
 
