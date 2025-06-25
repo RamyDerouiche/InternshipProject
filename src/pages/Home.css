@@ -5,22 +5,20 @@
   background-color: color-mix(in srgb, var(--background-color), transparent 95%);
   padding-bottom: 80px;
 }
-.hero .hero-title {
-  font-size: 2.5rem;
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--heading-color);
-  margin-bottom: 1.5rem;
+
+@media (max-width: 767.98px) {
+    .hero-title {
+        font-size: 1.75rem;
+    }
 }
-
-
-.hero .hero-description {
-  font-size: 1.125rem;
-  line-height: 1.6;
-  color: var(--default-color);
-  margin-bottom: 2rem;
-}
-
 .mb-4 {
     margin-bottom: 1.5rem !important;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--heading-color);
+    margin-bottom: 1.5rem;
 }
