@@ -1,0 +1,28 @@
+.btn-login,
+.btn-login:focus {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  font-size: 14px;
+  padding: 8px 26px;
+  margin: 0;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.btn-login:hover,
+.btn-login:focus:hover {
+  color: var(--contrast-color);
+  background: color-mix(in srgb, var(--accent-color), transparent 15%);
+}
+
+@media (max-width: 1200px) {
+  .logo {
+    order: 1;
+  }
+
+  .btn-login {
+    order: 2;
+    margin: 0 15px 0 0;
+    padding: 6px 20px;
+  }
+}

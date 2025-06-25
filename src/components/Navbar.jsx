@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Navbar.css';
 
 function Navbar() {
   return (
@@ -11,14 +12,13 @@ function Navbar() {
 
         <nav className="navmenu">
           <ul>
-            <li><a href="#hero">Accueil</a></li>
-            <li><a href="#about">A Propos</a></li>
-            <li><a href="#services">Fonctionnalités</a></li>
-            <li><a href="#portfolio">Calendrier</a></li>
-            <li><a href="#pricing">Tableau de Bord</a></li>
-            <li><a href="#team">Assistance</a></li>
+            <li><Link to="/">Accueil</Link></li>
+            <li><Link to="/about">A Propos</Link></li>
+            <li><a href="#features">Fonctionnalités</a></li>
+            <li><a href="#calendar">Calendrier</a></li>
+            <li><a href="#dashboard">Tableau de Bord</a></li>
+            <li><a href="#contact">Assistance</a></li>
           </ul>
-          <i className="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
 
         <a className="btn-login" href="#about">Connexion/Inscription</a>
