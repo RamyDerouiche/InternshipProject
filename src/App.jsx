@@ -10,7 +10,8 @@ import Footer from './components/Footer';
 function App() {
   return (
     <div>
-      <h1>This is a test/</h1>
+      <h1>Hello!</h1>
+      <p>This is a test.</p>
     </div>
   );
 }
