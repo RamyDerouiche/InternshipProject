@@ -7,7 +7,7 @@ function About() {
 
         {/* Section Title */}
         <div className="section-title">
-          <h2>QUI SOMMES-NOUS</h2>
+          <h2>A Propos</h2>
           <p>Révéler le plein potentiel de votre équipe grâce à l’assignation intelligente</p>
         </div>
 
