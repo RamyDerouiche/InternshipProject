@@ -3,7 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import Navbar from './components/Navbar';
-import './_reboot.scss';
+import './containers.scss';
+import './reboot.scss';
+import './navbar.scss';
+
+
 function App() {
   return (
     <>
