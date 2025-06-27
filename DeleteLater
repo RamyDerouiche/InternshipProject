@@ -1,22 +1,27 @@
-Sure! Here's a complete React component example (SchedulerPage.jsx) that uses the @bitnoi.se/react_scheduler package properly, assuming it does not require any special props to render a basic calendar.
+Perfect! Now that @bitnoi.se/react-scheduler is installed successfully, here’s how to use it step by step:
 
-✅ Step-by-Step Integration:
-1. Install the Package (already done)
-bash
-Copier
-Modifier
-npm install @bitnoi.se/react_scheduler
-2. Create SchedulerPage.jsx in src/pages or src/components
+✅ 1. Import the Scheduler in your component
+In any component where you want the calendar (e.g. Calendar.jsx), add:
+
 jsx
 Copier
 Modifier
-// src/pages/SchedulerPage.jsx
 import React from 'react';
 import Scheduler from '@bitnoi.se/react_scheduler';
-// If there's a stylesheet provided by the package, you may need to import it:
-// import '@bitnoi.se/react_scheduler/dist/styles.css'; // (Only if this file exists)
+import '@bitnoi.se/react_scheduler/dist/style.css'; // Optional: If styles are provided
+Make sure this path is correct. If there's no style.css, check the dist/ folder or use custom styles.
 
-export default function SchedulerPage() {
+✅ 2. Basic Usage Example
+Here's a simple working version inside Calendar.jsx:
+
+jsx
+Copier
+Modifier
+import React from 'react';
+import Scheduler from '@bitnoi.se/react_scheduler';
+import '@bitnoi.se/react_scheduler/dist/style.css'; // If available
+
+export default function CalendarPage() {
   return (
     <div style={{ padding: '2rem' }}>
       <h2>Calendrier des tâches</h2>
@@ -24,56 +29,35 @@ export default function SchedulerPage() {
     </div>
   );
 }
-3. Update Your App.jsx or Router
-If you're using React Router in App.jsx:
+✅ 3. Routing to the Calendar
+If you're using react-router-dom, make sure to route to this page:
 
 jsx
 Copier
 Modifier
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import SchedulerPage from './pages/SchedulerPage'; // 👈 Import it
-import Navbar from './components/Navbar';
+import CalendarPage from './components/Calendar'; // or wherever your file is
 
-export default function App() {
-  return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/calendar" element={<SchedulerPage />} /> {/* 👈 Add this */}
-      </Routes>
-    </Router>
-  );
-}
-4. Update Navbar
-Make sure your Navbar.jsx has a link to the calendar route:
+<Routes>
+  <Route path="/calendar" element={<CalendarPage />} />
+</Routes>
+And in your navbar or any link:
 
-jsx
+html
 Copier
 Modifier
-<li><Link to="/calendar" className="nav-link">Calendrier</Link></li>
-✅ Done!
-Now when you navigate to /calendar, you’ll see the scheduler rendered. If it needs data like events, let me know — I can show you how to pass that too.
+<a href="/calendar">Calendrier</a>
+✅ 4. Check Output
+Run the app: npm run dev
 
-Let me know if you'd like:
+Go to http://localhost:5173/calendar
 
-Scheduler with events/resources
+You should see the scheduler/calendar component
 
-Styling the calendar
+If it shows up blank:
 
-or Exporting events functionality
+Open the browser dev console and check for any errors
 
-Ready to go further?
+Check if you see any missing CSS warnings or import issues
 
-
-
-
-
-
-
-
+Let me know and I’ll help debug
 
