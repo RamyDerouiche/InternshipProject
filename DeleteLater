@@ -1,0 +1,79 @@
+Sure! Here's a complete React component example (SchedulerPage.jsx) that uses the @bitnoi.se/react_scheduler package properly, assuming it does not require any special props to render a basic calendar.
+
+✅ Step-by-Step Integration:
+1. Install the Package (already done)
+bash
+Copier
+Modifier
+npm install @bitnoi.se/react_scheduler
+2. Create SchedulerPage.jsx in src/pages or src/components
+jsx
+Copier
+Modifier
+// src/pages/SchedulerPage.jsx
+import React from 'react';
+import Scheduler from '@bitnoi.se/react_scheduler';
+// If there's a stylesheet provided by the package, you may need to import it:
+// import '@bitnoi.se/react_scheduler/dist/styles.css'; // (Only if this file exists)
+
+export default function SchedulerPage() {
+  return (
+    <div style={{ padding: '2rem' }}>
+      <h2>Calendrier des tâches</h2>
+      <Scheduler />
+    </div>
+  );
+}
+3. Update Your App.jsx or Router
+If you're using React Router in App.jsx:
+
+jsx
+Copier
+Modifier
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import SchedulerPage from './pages/SchedulerPage'; // 👈 Import it
+import Navbar from './components/Navbar';
+
+export default function App() {
+  return (
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/calendar" element={<SchedulerPage />} /> {/* 👈 Add this */}
+      </Routes>
+    </Router>
+  );
+}
+4. Update Navbar
+Make sure your Navbar.jsx has a link to the calendar route:
+
+jsx
+Copier
+Modifier
+<li><Link to="/calendar" className="nav-link">Calendrier</Link></li>
+✅ Done!
+Now when you navigate to /calendar, you’ll see the scheduler rendered. If it needs data like events, let me know — I can show you how to pass that too.
+
+Let me know if you'd like:
+
+Scheduler with events/resources
+
+Styling the calendar
+
+or Exporting events functionality
+
+Ready to go further?
+
+
+
+
+
+
+
+
+
