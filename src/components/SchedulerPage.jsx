@@ -1,5 +1,6 @@
 import React from 'react';
-import Scheduler from './node_modules/@bitnoi.se/react-scheduler/scheduler/index.js';
+import Scheduler from '@bitnoi.se/react-scheduler';
+import '@bitnoi.se/react-scheduler/dist/style.css'; // Add this line if required
 
 function Calendar() {
   return (
