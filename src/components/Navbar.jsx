@@ -15,7 +15,7 @@ function Navbar() {
             <li><Link to="/">Accueil</Link></li>
             <li><Link to="/about">A Propos</Link></li>
             <li><a href="#features">Fonctionnalités</a></li>
-            <li><a href="#calendar">Calendrier</a></li>
+            <li><Link to="/calendar">Calendrier</Link></li>
             <li><a href="#dashboard">Tableau de Bord</a></li>
             <li><a href="#contact">Assistance</a></li>
           </ul>
