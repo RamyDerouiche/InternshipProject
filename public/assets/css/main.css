@@ -531,12 +531,12 @@ section,
 }
 
 .hero .feature-boxes {
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .hero .feature-boxes .feature-box {
-  padding: 1.5rem;
-  border-radius: 12px;
+  padding: 1rem;
+  border-radius: 8px;
   background-color: var(--surface-color);
   border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
   height: 100%;
@@ -547,7 +547,7 @@ section,
   text-align: center;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 476px) {
   .hero .feature-boxes .feature-box {
     flex-direction: row;
     align-items: flex-start;
@@ -561,8 +561,8 @@ section,
 }
 
 .hero .feature-boxes .feature-box .feature-icon {
-  width: 60px;
-  height: 60px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
   display: flex;
