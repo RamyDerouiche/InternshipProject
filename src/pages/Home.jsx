@@ -49,7 +49,7 @@ function Home() {
         <div class="col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
           <div class="feature-box">
             <div class="feature-icon me-sm-4 mb-3 mb-sm-0">
-              <i class="bi bi-window"></i> <img src={`/src/tache.png`} />
+              <i class="bi bi-tache"></i> <img src={`tache.png`} className="img-tache" alt= "tache" />
 
             </div>
             <div class="feature-content">
