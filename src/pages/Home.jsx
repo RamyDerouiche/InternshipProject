@@ -37,7 +37,7 @@ function Home() {
         <div class="col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
           <div class="feature-box">
             <div class="feature-icon me-sm-4 mb-3 mb-sm-0">
-              <i class="bi bi-gear"></i> /*will change later*/
+              <i class="bi bi-gear"></i>
             </div>
             <div class="feature-content">
               <h3 class="feature-title">Attribuer des taches équitable et intelligente</h3>
@@ -49,7 +49,8 @@ function Home() {
         <div class="col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
           <div class="feature-box">
             <div class="feature-icon me-sm-4 mb-3 mb-sm-0">
-              <i class="bi bi-window"></i>/*will change later*/
+              <i class="bi bi-window"></i> <img src={`/src/tache.png`} />
+
             </div>
             <div class="feature-content">
               <h3 class="feature-title">Suivi en temps réel</h3>
@@ -61,7 +62,7 @@ function Home() {
         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
           <div class="feature-box">
             <div class="feature-icon me-sm-4 mb-3 mb-sm-0">
-              <i class="bi bi-headset"></i>/*will change later*/
+              <i class="bi bi-list-task"></i>
             </div>
             <div class="feature-content">
               <h3 class="feature-title">Amélioration de la productivité</h3>
