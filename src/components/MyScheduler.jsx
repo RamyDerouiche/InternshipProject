@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Scheduler } from "smart-webcomponents-react/scheduler";
 import "smart-webcomponents-react/source/styles/smart.default.css";
+import "./MyScheduler.css";
 
 function MyScheduler() {
   useEffect(() => {
