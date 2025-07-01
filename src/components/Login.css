@@ -1,7 +1,7 @@
 .login-container {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(#141e30, #243b55);
+  background: linear-gradient(#ffffff, #ffffff);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,15 +9,15 @@
 
 .login-container form {
   width: 400px;
-  background: #1e293b;
+  background: #fff9f8;
   padding: 40px;
   border-radius: 10px;
-  box-shadow: 0 0 10px #000;
+  box-shadow: 0 0 10px #000000;
 }
 
 .login-container h2 {
   text-align: center;
-  color: #fff;
+  color: #000000;
   margin-bottom: 30px;
 }
 
@@ -31,8 +31,8 @@
   padding: 10px;
   background: transparent;
   border: none;
-  border-bottom: 2px solid #fff;
-  color: #fff;
+  border-bottom: 2px solid #000000;
+  color: #000000;
   outline: none;
 }
 
@@ -40,7 +40,7 @@
   position: absolute;
   top: 10px;
   left: 0;
-  color: #fff;
+  color: #000000;
   pointer-events: none;
   transition: 0.5s;
 }
@@ -48,16 +48,16 @@
 .input-box input:focus ~ label,
 .input-box input:valid ~ label {
   top: -20px;
-  color: #03e9f4;
+  color: rgb(255, 0, 0);
   font-size: 12px;
 }
 
 .btn {
   width: 100%;
   padding: 10px;
-  background: #03e9f4;
+  background: #f40303;
   border: none;
-  color: #fff;
+  color: #000000;
   cursor: pointer;
   font-weight: bold;
   transition: 0.3s ease;
@@ -70,10 +70,10 @@
 .register-link {
   text-align: center;
   margin-top: 20px;
-  color: #fff;
+  color: #000000;
 }
 
 .register-link a {
-  color: #03e9f4;
+  color: #ff0000;
   text-decoration: none;
 }
