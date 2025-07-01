@@ -1,53 +1,161 @@
-import React, { useEffect } from "react";
-import { Scheduler } from "smart-webcomponents-react/scheduler";
-import "smart-webcomponents-react/source/styles/smart.default.css";
+import React, { useState } from 'react';
+import './Login.css';
 
-export default function MyScheduler() {
-  useEffect(() => {
-    // If needed, handle Scheduler setup here
-  }, []);
+function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const currentDate = new Date();
-
-  const dataSource = [
-    {
-      label: "Design Meeting",
-      dateStart: "2025-06-27T09:00:00",
-      dateEnd: "2025-06-27T11:00:00",
-      timeZone: "Europe/Paris",
-    },
-    {
-      label: "Client Call",
-      dateStart: "2025-06-28T13:00:00",
-      dateEnd: "2025-06-28T14:30:00",
-      timeZone: "America/New_York",
-    },
-  ];
-
-  const views = ["day", "week", "month", "agenda"];
+  const handleLogin = (e) => {
+    e.preventDefault();
+    console.log('Email:', email);
+    console.log('Password:', password);
+    // Add your login logic here
+  };
 
   return (
-    <div>
-      <Scheduler
-        id="scheduler"
-        dataSource={dataSource}
-        views={views}
-        view="week"
-        firstDayOfWeek={1}
-        dateCurrent={currentDate}
-        timeZone="Europe/Paris"
-      />
+    <div className="login-container">
+      <form onSubmit={handleLogin}>
+        <h2>Login</h2>
+        <div className="input-box">
+          <input
+            type="email"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <label>Email</label>
+        </div>
+        <div className="input-box">
+          <input
+            type="password"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <label>Password</label>
+        </div>
+        <button type="submit" className="btn">Login</button>
+        <div className="register-link">
+          <p>
+            Don't have an account? <a href="#">Register</a>
+          </p>
+        </div>
+      </form>
     </div>
   );
 }
-import React from "react";
-import MyScheduler from "./components/Scheduler";
 
-export default function App() {
+export default Login;
+
+
+
+
+
+
+
+
+.login-container {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(#141e30, #243b55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container form {
+  width: 400px;
+  background: #1e293b;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #000;
+}
+
+.login-container h2 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #fff;
+  color: #fff;
+  outline: none;
+}
+
+.input-box label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  color: #fff;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label {
+  top: -20px;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  background: #03e9f4;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background: #039dbf;
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 20px;
+  color: #fff;
+}
+
+.register-link a {
+  color: #03e9f4;
+  text-decoration: none;
+}
+
+
+
+
+
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import About from './pages/About';
+import Login from './pages/Login'; // ✅ Import
+
+function App() {
   return (
-    <div>
-      <h1>SmartAssign Scheduler</h1>
-      <MyScheduler />
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login />} /> {/* ✅ Add Route */}
+      </Routes>
+    </Router>
   );
 }
+
+export default App;
