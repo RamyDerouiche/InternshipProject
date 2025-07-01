@@ -21,7 +21,7 @@ function Navbar() {
           </ul>
         </nav>
 
-        <a className="btn-login" href="#about">Connexion/Inscription</a>
+        <Link to="/login" className="btn-login">Connexion/Inscription</Link>
       </div>
     </header>
   );
