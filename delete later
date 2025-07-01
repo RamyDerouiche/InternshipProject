@@ -1,115 +1,42 @@
-.hero {
-  padding-top: 140px;
-  padding-bottom: 80px;
-  background-color: color-mix(in srgb, var(--background-color), transparent 95%);
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+import React, { useEffect } from "react";
+import { Scheduler } from "smart-webcomponents-react/scheduler";
+import "smart-webcomponents-react/source/styles/smart.default.css";
 
+export default function MyScheduler() {
+  useEffect(() => {
+    // If needed, handle Scheduler setup here
+  }, []);
 
-.hero .hero-title {
-  max-width: 700px;
-  width: 100%;
-  text-align: start;
-  margin-bottom: 2rem;
-}
+  const currentDate = new Date();
 
-.hero .hero-title h1 {
-  font-size: 2.5rem; 
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--heading-color);
-  margin-bottom: 1.5rem;
-}
+  const dataSource = [
+    {
+      label: "Design Meeting",
+      dateStart: "2025-06-27T09:00:00",
+      dateEnd: "2025-06-27T11:00:00",
+      timeZone: "Europe/Paris",
+    },
+    {
+      label: "Client Call",
+      dateStart: "2025-06-28T13:00:00",
+      dateEnd: "2025-06-28T14:30:00",
+      timeZone: "America/New_York",
+    },
+  ];
 
-.hero-content-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: start;
-  gap: 2.5rem;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+  const views = ["day", "week", "month", "agenda"];
 
-.hero-image {
-  flex: 1 1 320px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 400px;
-  max-width: 520px;
-}
-
-.hero .feature-boxes {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.hero .feature-boxes .feature-box {
-  padding: 1rem;
-  border-radius: 8px;
-  background-color: var(--surface-color);
-  border: 1px solid color-mix(in srgb, var(--accent-color), transparent 80%);
-  height: 100%;
-  transition: all 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  min-width: 200px;
-  max-width: 260px;
-  margin: 0;
-}
-
-@media (min-width: 476px) {
-  .hero .feature-boxes .feature-box {
-    flex-direction: row;
-    align-items: flex-start;
-    text-align: left;
-  }
-}
-
-.hero .feature-boxes .feature-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-.hero .feature-boxes .feature-box .feature-icon {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.hero .feature-boxes .feature-box .feature-icon i {
-  font-size: 1.75rem;
-  color: var(--heading-color);
-}
-
-.hero .feature-boxes .feature-box .feature-content {
-  flex: 1;
-}
-
-.hero .feature-boxes .feature-box .feature-content .feature-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--heading-color);
-  margin-bottom: 0.75rem;
-}
-
-.hero .feature-boxes .feature-box .feature-content .feature-text {
-  font-size: 0.95rem;
-  color: var(--default-color);
-  margin-bottom: 0;
+  return (
+    <div>
+      <Scheduler
+        id="scheduler"
+        dataSource={dataSource}
+        views={views}
+        view="week"
+        firstDayOfWeek={1}
+        dateCurrent={currentDate}
+        timeZone="Europe/Paris"
+      />
+    </div>
+  );
 }
