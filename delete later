@@ -1,79 +1,28 @@
-import React, { useState } from 'react';
-import './Login.css';
-
-function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-    console.log('Email:', email);
-    console.log('Password:', password);
-    // Add your login logic here
-  };
-
-  return (
-    <div className="login-container">
-      <form onSubmit={handleLogin}>
-        <h2>Login</h2>
-        <div className="input-box">
-          <input
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <label>Email</label>
-        </div>
-        <div className="input-box">
-          <input
-            type="password"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <label>Password</label>
-        </div>
-        <button type="submit" className="btn">Login</button>
-        <div className="register-link">
-          <p>
-            Don't have an account? <a href="#">Register</a>
-          </p>
-        </div>
-      </form>
-    </div>
-  );
-}
-
-export default Login;
-
-
-
-
-
-
-
-
 .login-container {
-  width: 100%;
-  min-height: 100vh;
-  background: linear-gradient(#141e30, #243b55);
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(#ffffff, #243b55);
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; /* center vertically */
+  /* remove padding-top */
 }
 
 .login-container form {
   width: 400px;
-  background: #1e293b;
+  max-width: 100%;
+  background: #ffffff;
   padding: 40px;
   border-radius: 10px;
   box-shadow: 0 0 10px #000;
+  box-sizing: border-box;
+  transform: translateY(40px);
+  margin: 0 auto;
 }
 
 .login-container h2 {
   text-align: center;
-  color: #fff;
+  color: #000000;
   margin-bottom: 30px;
 }
 
@@ -87,8 +36,8 @@ export default Login;
   padding: 10px;
   background: transparent;
   border: none;
-  border-bottom: 2px solid #fff;
-  color: #fff;
+  border-bottom: 2px solid #000000;
+  color: #000000;
   outline: none;
 }
 
@@ -96,7 +45,7 @@ export default Login;
   position: absolute;
   top: 10px;
   left: 0;
-  color: #fff;
+  color: #000000;
   pointer-events: none;
   transition: 0.5s;
 }
@@ -104,58 +53,32 @@ export default Login;
 .input-box input:focus ~ label,
 .input-box input:valid ~ label {
   top: -20px;
-  color: #03e9f4;
+  color: #ff0000;
   font-size: 12px;
 }
 
 .btn {
   width: 100%;
   padding: 10px;
-  background: #03e9f4;
+  background: #ff0000;
   border: none;
-  color: #fff;
+  color: #000000;
   cursor: pointer;
   font-weight: bold;
   transition: 0.3s ease;
 }
 
 .btn:hover {
-  background: #039dbf;
+  background: #ff0000;
 }
 
 .register-link {
   text-align: center;
   margin-top: 20px;
-  color: #fff;
+  color: #000000;
 }
 
 .register-link a {
-  color: #03e9f4;
+  color: #ff0000;
   text-decoration: none;
 }
-
-
-
-
-
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Home from './pages/Home';
-import About from './pages/About';
-import Login from './pages/Login'; // ✅ Import
-
-function App() {
-  return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/login" element={<Login />} /> {/* ✅ Add Route */}
-      </Routes>
-    </Router>
-  );
-}
-
-export default App;
