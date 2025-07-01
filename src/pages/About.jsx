@@ -1,17 +1,17 @@
 import React from 'react';
-import './HowWeWork.css';
+import './About.css';
 
 
-function HowWeWork() {
+function About() {
   return (
     <section id="how-we-work" className="how-we-work section">
       {/* Section Title */}
-      <div className="container section-title" data-aos="fade-up">
+      <div className="container section-title about-wrapper" data-aos="fade-up">
         <h2>Comment nous travaillons</h2>
         <p>Cette méthode combine planification stratégique, personnalisation de la plateforme et suivi en temps réel pour une gestion des taches fluide et efficace.</p>
       </div>
 
-      <div className="container" data-aos="fade-up" data-aos-delay="100">
+      <div className="container about-wrapper" data-aos="fade-up" data-aos-delay="100">
         <div className="steps-5">
           <div className="process-container">
 
@@ -85,4 +85,4 @@ function HowWeWork() {
     </section>
   );
 }
-export default HowWeWork();
+export default About;
