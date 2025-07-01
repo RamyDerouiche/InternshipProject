@@ -1,6 +1,8 @@
 import React from 'react';
+import './HowWeWork.css';
 
-export default function HowWeWork() {
+
+function HowWeWork() {
   return (
     <section id="how-we-work" className="how-we-work section">
       {/* Section Title */}
@@ -83,3 +85,4 @@ export default function HowWeWork() {
     </section>
   );
 }
+export default HowWeWork();
