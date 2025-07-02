@@ -8,9 +8,10 @@ import Login from './components/Login';
 
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
   return (
-    <>
-      <Navbar />
+    <Router>
+      <Navbar loggedIn={loggedIn}/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -18,7 +19,7 @@ function App() {
 
 
       </Routes>
-    </>
+    </Router>
   );
 }
 

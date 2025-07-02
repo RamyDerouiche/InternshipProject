@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
-function Navbar() {
+function Navbar({ loggedIn }) {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => { 
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', onScroll);
+  }, []);
   return (
-    <header className="header fixed-top">
+    <header className={`header fixed-top d-flex align-items-center fixed-top ${scrolled ? 'scrolled' : ''}`}>
       <div className="container d-flex align-items-center justify-content-between">
         <Link to="/" className="logo d-flex align-items-center me-auto me-xl-0">
           <h1 className="sitename">SmartAssign</h1><span>.</span>
@@ -14,9 +19,13 @@ function Navbar() {
           <ul>
             <li><Link to="/">Accueil</Link></li>
             <li><Link to="/about">A Propos</Link></li>
-            <li><a href="#features">Fonctionnalités</a></li>
-            <li><Link to="/calendar">Calendrier</Link></li>
-            <li><a href="#dashboard">Tableau de Bord</a></li>
+            {loggedIn && (
+              <>
+                <li><a href="#features">Fonctionnalités</a></li>
+                <li><Link to="/calendar">Calendrier</Link></li>
+                <li><a href="#dashboard">Tableau de Bord</a></li>
+              </>
+            )}
             <li><a href="#contact">Assistance</a></li>
           </ul>
         </nav>
@@ -26,4 +35,5 @@ function Navbar() {
     </header>
   );
 }
+
 export default Navbar;
