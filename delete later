@@ -1,15 +1,94 @@
-.scrolled .header {
-    --background-color: rgba(255, 255, 255, 0.9);
+Thanks for the screenshot! You're close — you just need to add a scroll detection script in your React Navbar component to toggle a .scrolled class on the <body> or <header> when the user scrolls.
+
+✅ Here's exactly how to do it:
+🔧 Step 1: Update Your Navbar.jsx
+jsx
+Copier
+Modifier
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import './Navbar.css';
+
+function Navbar({ loggedIn }) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 50;
+      setScrolled(isScrolled);
+
+      // Add/remove class to <body> for CSS targeting
+      if (isScrolled) {
+        document.body.classList.add('scrolled');
+      } else {
+        document.body.classList.remove('scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <header className={`header d-flex align-items-center fixed-top`}>
+      <div className="container d-flex align-items-center justify-content-between">
+        <Link to="/" className="logo d-flex align-items-center me-auto me-xl-0">
+          <h1 className="sitename">SmartAssign</h1><span>.</span>
+        </Link>
+
+        <nav className="navmenu">
+          <ul>
+            <li><Link to="/">Accueil</Link></li>
+            <li><Link to="/about">A Propos</Link></li>
+            {loggedIn && (
+              <>
+                <li><a href="#features">Fonctionnalités</a></li>
+                <li><Link to="/calendar">Calendrier</Link></li>
+                <li><a href="#dashboard">Tableau de Bord</a></li>
+              </>
+            )}
+            <li><a href="#contact">Assistance</a></li>
+          </ul>
+        </nav>
+
+        <Link to="/login" className="btn-login">Connexion/Inscription</Link>
+      </div>
+    </header>
+  );
 }
-.scrolled .header {
-    box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.1);
+
+export default Navbar;
+🎨 Step 2: Add this to your Navbar.css
+css
+Copier
+Modifier
+/* Light background when scrolled */
+body.scrolled .header {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
-.header {
-    --background-color: rgba(255, 255, 255, 0);
-    color: var(--default-color);
-    background-color: var(--background-color);
-    padding: 20px 0;
-    transition: all 0.5s;
-    z-index: 997;
+🧠 Why This Works:
+body.scrolled is toggled by JavaScript based on scroll position.
+
+.header inside .scrolled gets new styles like background-color and box-shadow.
+
+Let me know if you'd prefer to toggle the class directly on <header> instead of <body>, and I’ll adjust it for you.
 
 
+
+
+
+
+
+
+
+Demander à ChatGPT
+
+
+
+Outils
+
+
+
+ChatGPT peut 
