@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar({ loggedIn, setLoggedIn }) {
@@ -30,26 +30,26 @@ function Navbar({ loggedIn, setLoggedIn }) {
   return (
     <header id="header" className="header fixed-top">
     <div className="container d-flex align-items-center justify-content-between">
-        <Link to="/" className="logo d-flex align-items-center me-auto me-xl-0">
+        <NavLink to="/" className="logo d-flex align-items-center me-auto me-xl-0">
           <h1 className="sitename">SmartAssign</h1><span>.</span>
-        </Link>
+        </NavLink>
 
         <nav className="navmenu">
           <ul>
             {!loggedIn && (
               <>
-                <li><Link to="/">Accueil</Link></li>
-                <li><Link to="/about">A Propos</Link></li>
-                <li><Link to="/contact">Assistance</Link></li>
+                <li><NavLink to="/">Accueil</NavLink></li>
+                <li><NavLink to="/about">A Propos</NavLink></li>
+                <li><NavLink to="/contact">Assistance</NavLink></li>
 
               </>
             )}
             {loggedIn && (
               <>
-                <li><Link to="/dashboard">Tableau de Bord</Link></li>
-                <li><Link to="/calendar">Calendrier</Link></li>
-                <li><Link to="/tasks">Tâches</Link></li>
-                <li><Link to="/upload-documents">Documents</Link></li>
+                <li><NavLink to="/dashboard">Tableau de Bord</NavLink></li>
+                <li><NavLink to="/calendar">Calendrier</NavLink></li>
+                <li><NavLink to="/tasks">Tâches</NavLink></li>
+                <li><NavLink to="/upload-documents">Documents</NavLink></li>
               </>
             )}
           </ul>
