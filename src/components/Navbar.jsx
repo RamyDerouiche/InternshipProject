@@ -33,9 +33,10 @@ function Navbar({ loggedIn }) {
             <li><Link to="/about">A Propos</Link></li>
             {loggedIn && (
               <>
-                <li><a href="#features">Fonctionnalités</a></li>
+                <li><Link to="/dashboard">Tableau de Bord</Link></li>
                 <li><Link to="/calendar">Calendrier</Link></li>
-                <li><a href="#dashboard">Tableau de Bord</a></li>
+                <li><Link to="/tasks">Tâches</Link></li>
+                <li><Link to="/upload-documents">Documents</Link></li>
               </>
             )}
             <li><a href="#contact">Assistance</a></li>
