@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar({ loggedIn, setLoggedIn }) {
     const [scrolled, setScrolled] = useState(false);
+    const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem('user');
     setLoggedIn(false);
+    navigate('/');
   };
 
   useEffect(() => {
@@ -38,6 +40,8 @@ function Navbar({ loggedIn, setLoggedIn }) {
               <>
                 <li><Link to="/">Accueil</Link></li>
                 <li><Link to="/about">A Propos</Link></li>
+                <li><Link to="/contact">Assistance</Link></li>
+
               </>
             )}
             {loggedIn && (
@@ -48,7 +52,6 @@ function Navbar({ loggedIn, setLoggedIn }) {
                 <li><Link to="/upload-documents">Documents</Link></li>
               </>
             )}
-            <li><a href="#contact">Assistance</a></li>
           </ul>
         </nav>
 

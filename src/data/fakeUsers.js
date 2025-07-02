@@ -1,7 +1,7 @@
 export default [
   {
     id: 1,
-    email: 'user1@sopra.com',
+    email: 'user1@soprahr.com',
     password: 'password123',
     name: 'User 1'
   },
