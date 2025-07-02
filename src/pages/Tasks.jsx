@@ -4,7 +4,7 @@ function Tasks() {
   return (
     <div>
       <h2>Tasks</h2>
-      <p>Placeholder for tasks content.</p>
+      <p>will put content later</p>
     </div>
   );
 }

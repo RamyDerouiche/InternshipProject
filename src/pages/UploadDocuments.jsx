@@ -4,7 +4,7 @@ function UploadDocuments() {
   return (
     <div>
       <h2>Upload Documents</h2>
-      <p>Placeholder for document upload content.</p>
+      <p>will put content later</p>
     </div>
   );
 }

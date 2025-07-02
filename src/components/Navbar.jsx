@@ -26,16 +26,20 @@ function Navbar({ loggedIn, setLoggedIn }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   return (
-    <header className="header fixed-top">
-      <div className="container d-flex align-items-center justify-content-between">
+    <header id="header" className="header fixed-top">
+    <div className="container d-flex align-items-center justify-content-between">
         <Link to="/" className="logo d-flex align-items-center me-auto me-xl-0">
           <h1 className="sitename">SmartAssign</h1><span>.</span>
         </Link>
 
         <nav className="navmenu">
           <ul>
-            <li><Link to="/">Accueil</Link></li>
-            <li><Link to="/about">A Propos</Link></li>
+            {!loggedIn && (
+              <>
+                <li><Link to="/">Accueil</Link></li>
+                <li><Link to="/about">A Propos</Link></li>
+              </>
+            )}
             {loggedIn && (
               <>
                 <li><Link to="/dashboard">Tableau de Bord</Link></li>

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.css';
 import fakeUsers from '../data/fakeUsers';
 
 function Login({ setLoggedIn }) {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -14,6 +16,7 @@ function Login({ setLoggedIn }) {
     if (user) {
       localStorage.setItem('user', JSON.stringify(user));
       setLoggedIn(true);
+      navigate('/dashboard');
     } else {
       alert('Invalid credentials');
     }

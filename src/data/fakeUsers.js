@@ -8,7 +8,7 @@ export default [
   {
     id: 2,
     email: 'test@soprahr.com',
-    password: 'azerty',
+    password: 'sopra',
     name: 'test123'
   }
 ];

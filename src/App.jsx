@@ -7,6 +7,7 @@ import Login from './components/Login';
 import Tasks from './pages/Tasks';
 import UploadDocuments from './pages/UploadDocuments';
 import Calendar from './pages/Calendar';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
