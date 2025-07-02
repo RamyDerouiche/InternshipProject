@@ -7,8 +7,8 @@ export default [
   },
   {
     id: 2,
-    email: 'jane@example.com',
-    password: 'securepass',
-    name: 'Jane Doe'
+    email: 'test@soprahr.com',
+    password: 'azerty',
+    name: 'test123'
   }
 ];

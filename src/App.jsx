@@ -4,6 +4,8 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Navbar from './components/Navbar';
 import Login from './components/Login';
+import Tasks from './pages/Tasks';
+import UploadDocuments from './pages/UploadDocuments';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -22,8 +24,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
-
-
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/calendar" element={<Calendar />} />
+        <Route path="/tasks" element={<Tasks />} />
+        <Route path="/upload-documents" element={<UploadDocuments />} />
       </Routes>
     </>
   );

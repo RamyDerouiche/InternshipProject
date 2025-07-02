@@ -2,8 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
-function Navbar({ loggedIn }) {
+function Navbar({ loggedIn, setLoggedIn }) {
     const [scrolled, setScrolled] = useState(false);
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    setLoggedIn(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,16 +38,23 @@ function Navbar({ loggedIn }) {
             <li><Link to="/about">A Propos</Link></li>
             {loggedIn && (
               <>
-                <li><a href="#features">Fonctionnalités</a></li>
+                <li><Link to="/dashboard">Tableau de Bord</Link></li>
                 <li><Link to="/calendar">Calendrier</Link></li>
-                <li><a href="#dashboard">Tableau de Bord</a></li>
+                <li><Link to="/tasks">Tâches</Link></li>
+                <li><Link to="/upload-documents">Documents</Link></li>
               </>
             )}
             <li><a href="#contact">Assistance</a></li>
           </ul>
         </nav>
 
-        <Link to="/login" className="btn-login">Connexion/Inscription</Link>
+        {loggedIn ? (
+          <button type="button" className="btn-login" onClick={handleLogout}>
+            Logout
+          </button>
+        ) : (
+          <Link to="/login" className="btn-login">Connexion/Inscription</Link>
+        )}
       </div>
     </header>
   );
