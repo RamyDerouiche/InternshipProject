@@ -1,23 +1,46 @@
-Thanks for the screenshot! You're close — you just need to add a scroll detection script in your React Navbar component to toggle a .scrolled class on the <body> or <header> when the user scrolls.
+src/App.jsx
++8
+-2
 
-✅ Here's exactly how to do it:
-🔧 Step 1: Update Your Navbar.jsx
-jsx
-Copier
-Modifier
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import './Navbar.css';
+import React, { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import Dashboard from './pages/Dashboard';
+import Calendar from './pages/Calendar';
+import Tasks from './pages/Tasks';
+import UploadDocuments from './pages/UploadDocuments';
+import Navbar from './components/Navbar';
+import Login from './components/Login';
 
-function Navbar({ loggedIn }) {
-  const [scrolled, setScrolled] = useState(false);
+function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+  return (
+    <>
+      <Navbar loggedIn={loggedIn} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/calendar" element={<Calendar />} />
+        <Route path="/tasks" element={<Tasks />} />
+        <Route path="/upload-documents" element={<UploadDocuments />} />
+        <Route path="/login" element={<Login />} />
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 50;
+
+      </Routes>
+    </>
+  );
+}
+
+export default App;
+src/components/Navbar.jsx
++3
+-2
+
+@@ -11,41 +11,42 @@ function Navbar({ loggedIn }) {
       setScrolled(isScrolled);
 
-      // Add/remove class to <body> for CSS targeting
       if (isScrolled) {
         document.body.classList.add('scrolled');
       } else {
@@ -28,9 +51,8 @@ function Navbar({ loggedIn }) {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   return (
-    <header className={`header d-flex align-items-center fixed-top`}>
+    <header className="header fixed-top">
       <div className="container d-flex align-items-center justify-content-between">
         <Link to="/" className="logo d-flex align-items-center me-auto me-xl-0">
           <h1 className="sitename">SmartAssign</h1><span>.</span>
@@ -43,8 +65,11 @@ function Navbar({ loggedIn }) {
             {loggedIn && (
               <>
                 <li><a href="#features">Fonctionnalités</a></li>
+                <li><Link to="/dashboard">Tableau de Bord</Link></li>
                 <li><Link to="/calendar">Calendrier</Link></li>
                 <li><a href="#dashboard">Tableau de Bord</a></li>
+                <li><Link to="/tasks">Tâches</Link></li>
+                <li><Link to="/upload-documents">Documents</Link></li>
               </>
             )}
             <li><a href="#contact">Assistance</a></li>
@@ -58,37 +83,71 @@ function Navbar({ loggedIn }) {
 }
 
 export default Navbar;
-🎨 Step 2: Add this to your Navbar.css
-css
-Copier
-Modifier
-/* Light background when scrolled */
-body.scrolled .header {
-  background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+src/pages/Calendar.jsx
+Nouveau
++12
+-0
+
+import React from 'react';
+
+function Calendar() {
+  return (
+    <div>
+      <h2>Calendar</h2>
+      <p>Placeholder for calendar content.</p>
+    </div>
+  );
 }
-🧠 Why This Works:
-body.scrolled is toggled by JavaScript based on scroll position.
 
-.header inside .scrolled gets new styles like background-color and box-shadow.
+export default Calendar;
+src/pages/Dashboard.jsx
+Nouveau
++12
+-0
 
-Let me know if you'd prefer to toggle the class directly on <header> instead of <body>, and I’ll adjust it for you.
+import React from 'react';
 
+function Dashboard() {
+  return (
+    <div>
+      <h2>Dashboard</h2>
+      <p>Placeholder for dashboard content.</p>
+    </div>
+  );
+}
 
+export default Dashboard;
+src/pages/Tasks.jsx
+Nouveau
++12
+-0
 
+import React from 'react';
 
+function Tasks() {
+  return (
+    <div>
+      <h2>Tasks</h2>
+      <p>Placeholder for tasks content.</p>
+    </div>
+  );
+}
 
+export default Tasks;
+src/pages/UploadDocuments.jsx
+Nouveau
++12
+-0
 
+import React from 'react';
 
+function UploadDocuments() {
+  return (
+    <div>
+      <h2>Upload Documents</h2>
+      <p>Placeholder for document upload content.</p>
+    </div>
+  );
+}
 
-
-Demander à ChatGPT
-
-
-
-Outils
-
-
-
-ChatGPT peut 
+export default UploadDocuments;
