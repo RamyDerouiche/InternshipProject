@@ -1,84 +1,15 @@
-.login-container {
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(#ffffff, #243b55);
-  display: flex;
-  justify-content: center;
-  align-items: center; /* center vertically */
-  /* remove padding-top */
+.scrolled .header {
+    --background-color: rgba(255, 255, 255, 0.9);
 }
+.scrolled .header {
+    box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.1);
+}
+.header {
+    --background-color: rgba(255, 255, 255, 0);
+    color: var(--default-color);
+    background-color: var(--background-color);
+    padding: 20px 0;
+    transition: all 0.5s;
+    z-index: 997;
 
-.login-container form {
-  width: 400px;
-  max-width: 100%;
-  background: #ffffff;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #000;
-  box-sizing: border-box;
-  transform: translateY(40px);
-  margin: 0 auto;
-}
 
-.login-container h2 {
-  text-align: center;
-  color: #000000;
-  margin-bottom: 30px;
-}
-
-.input-box {
-  position: relative;
-  margin-bottom: 30px;
-}
-
-.input-box input {
-  width: 100%;
-  padding: 10px;
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid #000000;
-  color: #000000;
-  outline: none;
-}
-
-.input-box label {
-  position: absolute;
-  top: 10px;
-  left: 0;
-  color: #000000;
-  pointer-events: none;
-  transition: 0.5s;
-}
-
-.input-box input:focus ~ label,
-.input-box input:valid ~ label {
-  top: -20px;
-  color: #ff0000;
-  font-size: 12px;
-}
-
-.btn {
-  width: 100%;
-  padding: 10px;
-  background: #ff0000;
-  border: none;
-  color: #000000;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s ease;
-}
-
-.btn:hover {
-  background: #ff0000;
-}
-
-.register-link {
-  text-align: center;
-  margin-top: 20px;
-  color: #000000;
-}
-
-.register-link a {
-  color: #ff0000;
-  text-decoration: none;
-}
