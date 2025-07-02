@@ -7,7 +7,7 @@ function About() {
     <section id="how-we-work" className="how-we-work section">
       {/* Section Title */}
       <div className="container section-title about-wrapper" data-aos="fade-up">
-        <h2>Comment nous travaillons</h2>
+        <h2>Comment Nous Travaillons</h2>
         <p>Cette méthode combine planification stratégique, personnalisation de la plateforme et suivi en temps réel pour une gestion des taches fluide et efficace.</p>
       </div>
 
