@@ -1,15 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar({ loggedIn }) {
-  const [scrolled, setScrolled] = useState(false);
-  useEffect(() => { 
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', onScroll);
-  }, []);
   return (
-    <header className={`header fixed-top d-flex align-items-center fixed-top ${scrolled ? 'scrolled' : ''}`}>
+    <header className="header fixed-top">
       <div className="container d-flex align-items-center justify-content-between">
         <Link to="/" className="logo d-flex align-items-center me-auto me-xl-0">
           <h1 className="sitename">SmartAssign</h1><span>.</span>
