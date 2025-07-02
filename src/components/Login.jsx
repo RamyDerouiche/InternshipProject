@@ -1,15 +1,22 @@
 import React, { useState } from 'react';
 import './Login.css';
+import fakeUsers from '../data/fakeUsers';
 
-function Login() {
+function Login({ setLoggedIn }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log('Email:', email);
-    console.log('Password:', password);
-    // Add your login logic here
+    const user = fakeUsers.find(
+      (u) => u.email === email && u.password === password,
+    );
+    if (user) {
+      localStorage.setItem('user', JSON.stringify(user));
+      setLoggedIn(true);
+    } else {
+      alert('Invalid credentials');
+    }
   };
 
   return (
