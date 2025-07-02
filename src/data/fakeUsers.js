@@ -1,14 +1,14 @@
 export default [
   {
     id: 1,
-    email: 'test@example.com',
+    email: 'user1@sopra.com',
     password: 'password123',
-    name: 'Test User'
+    name: 'User 1'
   },
   {
     id: 2,
-    email: 'test@soprahr.com',
+    email: 'user2@soprahr.com',
     password: 'sopra',
-    name: 'test123'
+    name: 'User 2'
   }
 ];
