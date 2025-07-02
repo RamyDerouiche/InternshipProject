@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Login from './components/Login';
 import Tasks from './pages/Tasks';
 import UploadDocuments from './pages/UploadDocuments';
+import Calendar from './pages/Calendar';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
