@@ -70,3 +70,10 @@ a {
     color: var(--nav-hover-color);
   }
 }
+
+body.scrolled .header {
+  background-color: rgba(255, 255, 255, 1.2);
+  box-shadow: 0 0 30px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  padding: 10px 0;
+}
