@@ -7,7 +7,7 @@ function Dashboard() {
   return (
     
     <div className="dashboard container py-5">
-      <h2 className="mb-1">Bienvenue, Omar 👋</h2>
+      <h2 className="mb-1">Bienvenue, User2 👋</h2>
       <p className="text-muted mb-4">
         Suivez vos tâches, consultez le calendrier et surveillez vos performances.
       </p>
@@ -26,9 +26,9 @@ function Dashboard() {
         <div className="col-md-4">
           <div className="card shadow-sm h-100 d-flex flex-column align-items-center justify-content-center p-4">
             <div className="progress-circle position-relative">
-              <span className="progress-value">75%</span>
+              <span className="progress-value"><strong>35%</strong></span>
             </div>
-            <p className="mt-3 mb-0 text-center text-muted">des tâches complétées</p>
+            <p className="mt-3 mb-0 text-center text-muted">Les tâches complétées d'aujourd'hui.</p>
           </div>
         </div>
         <div className="col-md-4">
