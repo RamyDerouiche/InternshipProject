@@ -47,6 +47,7 @@ function Navbar({ loggedIn, setLoggedIn }) {
             {loggedIn && (
               <>
                 <li><NavLink to="/dashboard">Tableau de Bord</NavLink></li>
+                <li><NavLink to="/ressources">Ressources</NavLink></li>
                 <li><NavLink to="/calendar">Calendrier</NavLink></li>
                 <li><NavLink to="/tasks">Tâches</NavLink></li>
                 <li><NavLink to="/upload-documents">Documents</NavLink></li>
