@@ -59,7 +59,7 @@
 }
 
 .button-card button {
-  background-color: #3b82f6;
+  background-color: #ff0000;
   color: white;
   padding: 0.6rem 1.2rem;
   border: none;
@@ -69,7 +69,7 @@
 }
 
 .button-card button:hover {
-  background-color: #2563eb;
+  background-color: #ff0000;
 }
 
 .message-card .small {
