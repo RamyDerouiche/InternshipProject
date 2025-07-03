@@ -8,6 +8,7 @@ import Tasks from './pages/Tasks';
 import UploadDocuments from './pages/UploadDocuments';
 import Calendar from './pages/Calendar';
 import Dashboard from './pages/Dashboard';
+import Ressources from './pages/Ressources';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -30,6 +31,8 @@ function App() {
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/upload-documents" element={<UploadDocuments />} />
+        <Route path="/ressources" element={<Ressources />} />
+
       </Routes>
     </>
   );
