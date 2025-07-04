@@ -1,4 +1,9 @@
-.admin-dashboard {
+dashboard/Dashboard.css
+Nouveau
++100
+-0
+
+.dashboard {
   display: flex;
   min-height: 100vh;
   background-color: #f5f6fa;
@@ -6,90 +11,101 @@
   font-family: Arial, sans-serif;
 }
 
-.sidebar {
-  width: 220px;
-  background-color: #ffffff;
+.dashboard__sidebar {
+  width: 14rem;
+  background-color: #fff;
   padding: 2rem 1rem;
-  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.05);
 }
 
-.sidebar ul {
+.dashboard__nav-list {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-.sidebar li {
+.dashboard__nav-item {
   margin-bottom: 1rem;
   cursor: pointer;
   font-weight: 500;
+  transition: color 0.2s;
 }
 
-.dashboard-main {
+.dashboard__nav-item:hover {
+  color: #007bff;
+}
+
+.dashboard__main {
   flex: 1;
   padding: 2rem;
 }
 
-.dashboard-main h1 {
+.dashboard__title {
   margin-bottom: 2rem;
 }
 
-.stats-grid {
+.dashboard__stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
-.card {
+.dashboard__card {
   background-color: #fff;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   padding: 1.5rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+.dashboard__card:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15);
 }
 
-.card h3 {
+.dashboard__card-title {
   margin-bottom: 0.5rem;
   font-size: 1rem;
 }
 
-.stat-value {
+.dashboard__stat-value {
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 700;
 }
 
-.chart-section h2 {
+.dashboard__chart-title {
   margin-bottom: 1rem;
 }
 
-.chart-placeholder {
+.dashboard__chart-placeholder {
   background-color: #fff;
-  border-radius: 8px;
-  height: 200px;
+  border-radius: 0.5rem;
+  height: 12.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1024px) {
+  .dashboard__sidebar {
+    width: 12rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .sidebar {
+  .dashboard__sidebar {
     display: none;
   }
 
-  .dashboard-main {
+  .dashboard__main {
     padding: 1rem;
   }
 }
 dashboard/Dashboard.jsx
 Nouveau
-+45
++52
 -0
 
 import React from 'react';
@@ -97,40 +113,47 @@ import './Dashboard.css';
 
 function Dashboard() {
   return (
-    <div className="admin-dashboard">
-      <aside className="sidebar">
-        <nav>
-          <ul>
-            <li>Accueil</li>
-            <li>Utilisateurs</li>
-            <li>Paramètres</li>
+    <div className="dashboard">
+      <aside className="dashboard__sidebar">
+        <nav className="dashboard__nav">
+          <ul className="dashboard__nav-list">
+            <li className="dashboard__nav-item">Aperçu</li>
+            <li className="dashboard__nav-item">Tâches</li>
+            <li className="dashboard__nav-item">Calendrier</li>
+            <li className="dashboard__nav-item">Documents</li>
+            <li className="dashboard__nav-item">Ressources</li>
           </ul>
         </nav>
       </aside>
-      <main className="dashboard-main">
-        <h1>Tableau de Bord de l’Administrateur</h1>
-        <div className="stats-grid">
-          <div className="card">
-            <h3>Total Membres</h3>
-            <p className="stat-value">24</p>
-          </div>
-          <div className="card">
-            <h3>Tâches Assignées</h3>
-            <p className="stat-value">18</p>
-          </div>
-          <div className="card">
-            <h3>Documents Téléchargés</h3>
-            <p className="stat-value">56</p>
-          </div>
-          <div className="card">
-            <h3>Heures Journalisées</h3>
-            <p className="stat-value">134h</p>
-          </div>
-        </div>
-        <div className="chart-section">
-          <h2>Activité Hebdomadaire</h2>
-          <div className="chart-placeholder">Chart</div>
-        </div>
+
+      <main className="dashboard__main">
+        <header className="dashboard__header">
+          <h1 className="dashboard__title">Tableau de Bord de l’Administrateur</h1>
+        </header>
+
+        <section className="dashboard__stats">
+          <article className="dashboard__card">
+            <h3 className="dashboard__card-title">Total Membres</h3>
+            <p className="dashboard__stat-value">24</p>
+          </article>
+          <article className="dashboard__card">
+            <h3 className="dashboard__card-title">Tâches Assignées</h3>
+            <p className="dashboard__stat-value">18</p>
+          </article>
+          <article className="dashboard__card">
+            <h3 className="dashboard__card-title">Documents Téléchargés</h3>
+            <p className="dashboard__stat-value">56</p>
+          </article>
+          <article className="dashboard__card">
+            <h3 className="dashboard__card-title">Heures Journalisées</h3>
+            <p className="dashboard__stat-value">134h</p>
+          </article>
+        </section>
+
+        <section className="dashboard__chart">
+          <h2 className="dashboard__chart-title">Activité Hebdomadaire</h2>
+          <div className="dashboard__chart-placeholder">Chart</div>
+        </section>
       </main>
     </div>
   );
