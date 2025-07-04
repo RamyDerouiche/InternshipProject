@@ -6,3 +6,11 @@
 .contact .form-wrapper button {
   margin-top: 15px;
 }
+
+.contact {
+    padding-left: 15rem;
+}
+
+.g-4, .gy-4 {
+    --bs-gutter-y: 1.5rem;
+}

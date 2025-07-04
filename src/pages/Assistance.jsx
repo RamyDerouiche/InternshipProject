@@ -49,18 +49,7 @@ function Assistance() {
                       <input type="text" name="phone" className="form-control" placeholder="Phone number*" required />
                     </div>
                   </div>
-                  <div className="col-md-6 form-group">
-                    <div className="input-group">
-                      <span className="input-group-text"><i className="bi bi-list" /></span>
-                      <select name="subject" className="form-control" required>
-                        <option value="">Select service*</option>
-                        <option value="Service 1">test1</option>
-                        <option value="Service 2">test2</option>
-                        <option value="Service 3">test3</option>
-                        <option value="Service 4">test4</option>
-                      </select>
-                    </div>
-                  </div>
+                  
                   <div className="form-group mt-3">
                     <div className="input-group">
                       <span className="input-group-text"><i className="bi bi-chat-dots" /></span>
@@ -68,9 +57,7 @@ function Assistance() {
                     </div>
                   </div>
                   <div className="my-3">
-                    <div className="loading">Loading</div>
                     <div className="error-message" />
-                    <div className="sent-message">Your message has been sent. Thank you!</div>
                   </div>
                   <div className="text-center">
                     <button type="submit">Submit Message</button>
