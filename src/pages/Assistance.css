@@ -14,3 +14,16 @@
 .g-4, .gy-4 {
     --bs-gutter-y: 1.5rem;
 }
+
+.contact .info-card
+
+{
+    background-color: var(--surface-color);
+    padding: 30px;
+    text-align: center;
+    height: 100%;
+    border-radius: 40px;
+    border: 1px solid
+ color-mix(in srgb, var(--default-color), transparent 90%);
+    transition: all 0.3s ease-in-out;
+}

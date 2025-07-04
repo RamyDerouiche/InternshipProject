@@ -8,8 +8,8 @@ function Assistance() {
         <h2>Assistance</h2>
       </div>
       <div className="container" data-aos="fade-up" data-aos-delay="100">
-        <div className="row gy-4 mb-5">
-          <div className="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+        <div className="row gy-4 mb-5 justify-content-center">
+          <div className="col-lg-12 col-md-14" data-aos="fade-up" data-aos-delay="200">
             <div className="info-card">
               <div className="icon-box">
                 <i className="bi bi-telephone" />
@@ -18,7 +18,7 @@ function Assistance() {
               <p>
                 Mobile: +216 20700600
                 <br />
-                Email: info@example.com
+                Email: admin@soprahr.com
               </p>
             </div>
           </div>
