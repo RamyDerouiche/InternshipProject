@@ -9,6 +9,8 @@ import UploadDocuments from './pages/UploadDocuments';
 import Calendar from './pages/Calendar';
 import Dashboard from './pages/Dashboard';
 import Ressources from './pages/Ressources';
+import Assistance from './pages/Assistance';
+
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -32,7 +34,7 @@ function App() {
         <Route path="/tasks" element={<Tasks />} />
         <Route path="/upload-documents" element={<UploadDocuments />} />
         <Route path="/ressources" element={<Ressources />} />
-
+        <Route path="/contact" element={<Assistance />} />
       </Routes>
     </>
   );

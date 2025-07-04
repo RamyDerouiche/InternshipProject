@@ -1,27 +1,47 @@
-.dashboard-wrapper {
-    min-height: calc(100vh - 70px);
-    margin-top: 70px;
-
+.dashboard .card {
+  border: none;
+  border-radius: 0.75rem;
 }
 
-.sidebar {
-    width: 220px;
-    background-color: var(--sidebar-background, #f8f9fa);
-    border-right: 1px solid var(--sidebar_border, #dee2e6)
+.progress-circle {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: conic-gradient(var(--bs-primary) 0 35deg, #e9ecef 0 360deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.sidebar .nav-link{
-    color: var(--sidebar-foreground, #555);
-    cursor: pointer;
+.progress-value {
+  position: absolute;
+  font-weight: 600;
+  color: #000000;
 }
 
-.sidebar .nav-link:hover {
-    background-color: var(--sidebar-accent, #e9ecef);
+.py-5 {
+  padding-top: 11rem !important;
+  padding-bottom: 3rem !important;
+  padding-left: 5rem !important;
 }
 
-.sitename {
-    display: flex;
-    align-items: center;
-    font-weight: 600;
-    font-size: 1.25rem;
+.mb-4 {
+    margin-bottom: 3.5rem !important;
+}
+
+.g-4, .gy-4 {
+    --bs-gutter-y: 1.5rem;
+}
+.g-4, .gx-4 {
+    --bs-gutter-x: 1.5rem;
+}
+
+.text-primary {
+    --bs-text-opacity: 1;
+    color: #000000 !important;
+}
+
+.col-md-4 {
+    flex: 0 0 auto;
+    width: 50%;
 }
