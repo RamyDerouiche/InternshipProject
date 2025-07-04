@@ -1,151 +1,98 @@
 src/pages/Dashboard.jsx
-+71
--57
 
-import React from 'react';
-import { Link } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import './Dashboard.css';
++71-57
 
-function Dashboard() {
-  const getGreeting = () => {
-    const hour = new Date().getHours();
-    if (hour >= 5 && hour < 12) return 'Bonjour';
-    if (hour >= 12 && hour < 18) return 'Bon après-midi';
-    return 'Bonsoir';
-  };
+1
 
-  const [greeting, setGreeting] = useState('');
+-import React from 'react'; 
 
-  useEffect(() => {
-    setGreeting(getGreeting());
-  }, []);
+2
 
-  const user = { name: 'John Doe', role: 'Support' };
+-import { Link } from 'react-router-dom'; 
 
-  const menuItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: 'bi-speedometer2' },
-    { id: 'project', label: 'Project', icon: 'bi-briefcase' },
-    { id: 'task', label: 'Task', icon: 'bi-check-circle' },
-    { id: 'team', label: 'Team', icon: 'bi-people' },
-    { id: 'client', label: 'Client', icon: 'bi-person-circle' },
-    { id: 'finance', label: 'Finance', icon: 'bi-bar-chart-line' },
-    { id: 'analytics', label: 'Analytics', icon: 'bi-graph-up' },
-    { id: 'notifications', label: 'Notifications', icon: 'bi-bell' },
-    { id: 'support', label: 'Support', icon: 'bi-headset' },
-    { id: 'settings', label: 'Settings', icon: 'bi-gear' },
-  ];
+1
 
-  return (
-    
-    <div className="dashboard container py-5">
-      <h2 className="mb-1">Bienvenue, User2 👋</h2>
-      <p className="text-muted mb-4">
-        Suivez vos tâches, consultez le calendrier et surveillez vos performances.
-      </p>
-      <div className="row g-4">
-        <div className="col-md-4">
-          <div className="card shadow-sm h-100">
-            <div className="card-body">
-              <h5 className="card-title">Tâches du jour</h5>
-              <ul className="list-unstyled mb-0">
-                <li className="mb-2">Tâche A <span className="text-muted">- 16:00</span></li>
-                <li>Tâche B (réunion) <span className="text-muted">- 10:30</span></li>
-              </ul>
-            </div>
-          </div>
-    <div className="dashboard-wrapper d-flex">
-      <aside className="sidebar d-flex flex-column">
-        <div className="p-3 border-bottom fw-bold d-flex align-items-center">
-          <i className="bi bi-grid-fill me-2"></i>Drageasy
-        </div>
-        <div className="col-md-6">
-          <div className="card shadow-sm h-100 d-flex flex-column align-items-center justify-content-center p-4">
-            <div className="progress-circle position-relative">
-              <span className="progress-value"><strong>35%</strong></span>
-            </div>
-            <p className="mt-3 mb-0 text-center text-muted">Les tâches complétées d'aujourd'hui.</p>
-          </div>
-        <ul className="nav flex-column px-2 pt-3">
-          {menuItems.map((item) => (
-            <li key={item.id} className="nav-item mb-1">
-              <span className="nav-link d-flex align-items-center">
-                <i className={`bi ${item.icon} me-2`}></i>
-                {item.label}
-              </span>
-            </li>
-          ))}
-        </ul>
-        <div className="mt-auto p-3 border-top small">
-          <div>{user.name}</div>
-          <div className="text-muted">{user.role}</div>
-        </div>
-        <div className="col-md-6">
-          <div className="card shadow-sm h-100 text-center">
-            <div className="card-body d-flex flex-column align-items-center justify-content-center">
-              <i className="bi bi-calendar2-week display-6 text-primary mb-3"></i>
-              <Link to="/calendar" className="btn btn-primary">Voir le calendrier</Link>
-      </aside>
-      <main className="flex-fill p-4">
-        <h2 className="mb-4">
-          {greeting}, {user.name.split(' ')[0]} !
-        </h2>
-        <div className="row g-3">
-          <div className="col-md-6 col-lg-4">
-            <div className="card card-custom h-100">
-              <div className="card-body">
-                <h5 className="card-title">Projects</h5>
-                <p className="card-text">5 active projects</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-6">
-          <div className="card shadow-sm h-100 text-center">
-            <div className="card-body d-flex flex-column align-items-center justify-content-center">
-              <i className="bi bi-list-task display-6 text-primary mb-3"></i>
-              <Link to="/tasks" className="btn btn-primary">Aller aux tâches</Link>
-          <div className="col-md-6 col-lg-4">
-            <div className="card card-custom h-100">
-              <div className="card-body">
-                <h5 className="card-title">Tasks</h5>
-                <p className="card-text">24 tasks pending</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-6">
-          <div className="card shadow-sm h-100">
-            <div className="card-body">
-              <h5 className="card-title">Messages</h5>
-              <p className="card-text mb-0">
-                <strong>Alice M.</strong> : N'oublie pas de mettre à jour ton rapport.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="col-md-6">
-          <div className="card shadow-sm h-100">
-            <div className="card-body">
-              <h5 className="card-title">Notifications récentes</h5>
-              <ul className="list-unstyled mb-0">
-                <li className="mb-2">Ahmed a commenté votre tâche.</li>
-                <li>Mise à jour du projet Alpha.</li>
-              </ul>
-          <div className="col-md-6 col-lg-4">
-            <div className="card card-custom h-100">
-              <div className="card-body">
-                <h5 className="card-title">Team</h5>
-                <p className="card-text">6 members</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      </main>
-    </div>
-  );
-}
++import React, { useEffect, useState } from 'react'; 
 
-export default Dashboard;
+32
+
+import 'bootstrap-icons/font/bootstrap-icons.css'; 
+
+43
+
+import './Dashboard.css'; 
+
+54
+
+65
+
+function Dashboard() { 
+
+6
+
++ const getGreeting = () => { 
+
+7
+
++ const hour = new Date().getHours(); 
+
+8
+
++ if (hour >= 5 && hour < 12) return 'Bonjour'; 
+
+9
+
++ if (hour >= 12 && hour < 18) return 'Bon après-midi'; 
+
+10
+
++ return 'Bonsoir'; 
+
+11
+
++ }; 
+
+12
+
++ 
+
+13
+
++ const [greeting, setGreeting] = useState(''); 
+
+14
+
++ 
+
+15
+
++ useEffect(() => { 
+
+16
+
++ setGreeting(getGreeting()); 
+
+17
+
++ }, []); 
+
+18
+
++ 
+
+19
+
++ const user = { name: 'John Doe', role: 'Support' }; 
+
+20
+
++ 
+
+21
+
++ const menuItems = [ 
+
+22
+
++ { id: 'dashboard', label: 'Dashboard', icon: 'bi-speedometer2' }, 
+
