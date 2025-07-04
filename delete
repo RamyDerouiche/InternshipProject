@@ -1,98 +1,111 @@
-src/pages/Dashboard.jsx
+const getGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour >= 5 && hour < 12) return 'Bonjour';
+    if (hour >= 12 && hour < 18) return 'Bon après-midi';
+    return 'Bonsoir';
+  };
 
-+71-57
+  const [greeting, setGreeting] = useState('');
 
-1
+  useEffect(() => {
+    setGreeting(getGreeting());
+  }, []);
 
--import React from 'react'; 
+  const user = { name: 'John Doe', role: 'Support' };
 
-2
+  const initialCards = [
+    { id: 'projects', title: 'Projects', text: '5 active projects' },
+    { id: 'tasks', title: 'Tasks', text: '24 tasks pending' },
+    { id: 'team', title: 'Team', text: '6 members' },
+    { id: 'finance', title: 'Finance', text: 'Quarterly review soon' },
+    { id: 'activities', title: 'Activities', text: '3 new updates' },
+  ];
 
--import { Link } from 'react-router-dom'; 
+  const [cards, setCards] = useState(initialCards);
+  const [dragOver, setDragOver] = useState(null);
 
-1
+  const handleDragStart = (e, index) => {
+    e.dataTransfer.setData('text/plain', index);
+  };
 
-+import React, { useEffect, useState } from 'react'; 
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
 
-32
+  const handleDragEnter = (idx) => {
+    setDragOver(idx);
+  };
 
-import 'bootstrap-icons/font/bootstrap-icons.css'; 
+  const handleDragLeave = () => {
+    setDragOver(null);
+  };
 
-43
+  const handleDrop = (e, dropIndex) => {
+    e.preventDefault();
+    const dragIndex = parseInt(e.dataTransfer.getData('text/plain'), 10);
+    if (dragIndex === dropIndex) {
+      setDragOver(null);
+      return;
+    }
+    const updated = [...cards];
+    const [removed] = updated.splice(dragIndex, 1);
+    updated.splice(dropIndex, 0, removed);
+    setCards(updated);
+    setDragOver(null);
+  };
 
-import './Dashboard.css'; 
+  const menuItems = [
+    { id: 'dashboard', label: 'Dashboard', icon: 'bi-speedometer2' },
+    { id: 'project', label: 'Project', icon: 'bi-briefcase' },
+    { id: 'task', label: 'Task', icon: 'bi-check-circle' },
+    { id: 'team', label: 'Team', icon: 'bi-people' },
+    { id: 'client', label: 'Client', icon: 'bi-person-circle' },
+    { id: 'finance', label: 'Finance', icon: 'bi-bar-chart-line' },
+    { id: 'analytics', label: 'Analytics', icon: 'bi-graph-up' },
+    { id: 'notifications', label: 'Notifications', icon: 'bi-bell' },
+    { id: 'support', label: 'Support', icon: 'bi-headset' },
+    { id: 'settings', label: 'Settings', icon: 'bi-gear' },
+  ];
 
-54
-
-65
-
-function Dashboard() { 
-
-6
-
-+ const getGreeting = () => { 
-
-7
-
-+ const hour = new Date().getHours(); 
-
-8
-
-+ if (hour >= 5 && hour < 12) return 'Bonjour'; 
-
-9
-
-+ if (hour >= 12 && hour < 18) return 'Bon après-midi'; 
-
-10
-
-+ return 'Bonsoir'; 
-
-11
-
-+ }; 
-
-12
-
-+ 
-
-13
-
-+ const [greeting, setGreeting] = useState(''); 
-
-14
-
-+ 
-
-15
-
-+ useEffect(() => { 
-
-16
-
-+ setGreeting(getGreeting()); 
-
-17
-
-+ }, []); 
-
-18
-
-+ 
-
-19
-
-+ const user = { name: 'John Doe', role: 'Support' }; 
-
-20
-
-+ 
-
-21
-
-+ const menuItems = [ 
-
-22
-
-+ { id: 'dashboard', label: 'Dashboard', icon: 'bi-speedometer2' }, 
-
+<div className="dashboard-wrapper d-flex">
+      <aside className="sidebar d-flex flex-column">
+        <div className="p-3 border-bottom fw-bold d-flex align-items-center">
+          <i className="bi bi-grid-fill me-2"></i>Drageasy
+        </div>
+<ul className="nav flex-column px-2 pt-3">
+          {menuItems.map((item) => (
+            <li key={item.id} className="nav-item mb-1">
+              <span className="nav-link d-flex align-items-center">
+                <i className={`bi ${item.icon} me-2`}></i>
+                {item.label}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <div className="mt-auto p-3 border-top small">
+          <div>{user.name}</div>
+          <div className="text-muted">{user.role}</div>
+</aside>
+      <main className="flex-fill p-4">
+        <h2 className="mb-4">
+          {greeting}, {user.name.split(' ')[0]} !
+        </h2>
+        <div className="row g-3">
+          {cards.map((card, idx) => (
+            <div
+              key={card.id}
+              className="col-md-6 col-lg-4"
+              draggable
+              onDragStart={(e) => handleDragStart(e, idx)}
+              onDragOver={handleDragOver}
+              onDrop={(e) => handleDrop(e, idx)}
+              onDragEnter={() => handleDragEnter(idx)}
+              onDragLeave={handleDragLeave}
+            >
+              <div className={`card card-custom h-100 ${dragOver === idx ? 'drag-over' : ''}`}>
+                <div className="card-body">
+                  <h5 className="card-title">{card.title}</h5>
+                  <p className="card-text">{card.text}</p>
+                </div>
+              </div>
+            </div>
