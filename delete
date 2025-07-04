@@ -1,40 +1,58 @@
-<div className="row feature-boxes mt-4"> 
+src/components/Scheduler.css
+Nouveau
++9
+-0
 
+.scheduler-wrapper {
+  width: 100%;
+  height: 100vh;
+}
 
-<div className="col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200"> 
+.smart-scheduler {
+  width: 100%;
+  height: 100%;
+}
+src/components/Scheduler.jsx
+Nouveau
++39
+-0
 
- <div className="feature-box"> 
-<div className="feature-icon me-sm-4 mb-3 mb-sm-0"> 
-<img src={tacheIcon} alt="Tâches" /> 
-</div> 
-<div className="feature-content"> 
-<h3 className="feature-title">Attribuer des taches équitable et intelligente</h3> 
-<p className="feature-text">Basée sur les roles et les charges de travail.</p> 
-</div> 
+import React from 'react';
+import { Scheduler } from 'smart-webcomponents-react/scheduler';
+import 'smart-webcomponents-react/source/styles/smart.default.css';
+import './Scheduler.css';
 
+export default function SchedulerComponent() {
+  const today = new Date();
 
-</div> 
+  const events = [
+    {
+      label: 'Team Meeting',
+      dateStart: '2025-07-10T09:00:00',
+      dateEnd: '2025-07-10T10:00:00',
+      timeZone: 'Europe/Paris',
+    },
+    {
+      label: 'Planning Session',
+      dateStart: '2025-07-11T12:00:00',
+      dateEnd: '2025-07-11T13:30:00',
+      timeZone: 'Europe/Paris',
+    },
+  ];
 
+  const views = ['day', 'week', 'month', 'agenda'];
 
-</div>
-
-<div className="col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
-            <div className="feature-box">
-              <div className="feature-icon me-sm-4 mb-3 mb-sm-0">
-                <img src={tempsIcon} alt="Suivi" />
-              </div>
-              <div className="feature-content">
-                <h3 className="feature-title">Suivi en temps réel</h3>
-                <p className="feature-text">De l'avancement, des gloulots d'étranglement et des responsabilités.</p>
-              </div>
-            </div>
-          </div>
-<div className="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-            <div className="feature-box">
-              <div className="feature-icon me-sm-4 mb-3 mb-sm-0">
-                <img src={ameliorationIcon} alt="Productivité" />
-              </div>
-              <div className="feature-content">
-                <h3 className="feature-title">Amélioration de la productivité</h3>
-                <p className="feature-text">Grace à l'automatisation, aux suggestions et aux statistiques managériales.</p>
-              </div>
+  return (
+    <div className="scheduler-wrapper">
+      <Scheduler
+        id="scheduler"
+        dataSource={events}
+        views={views}
+        view="week"
+        dateCurrent={today}
+        firstDayOfWeek={1}
+        timeZone="Europe/Paris"
+      />
+    </div>
+  );
+}
