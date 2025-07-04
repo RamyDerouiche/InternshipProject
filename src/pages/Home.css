@@ -2,6 +2,7 @@
 .hero {
   padding-top: 140px;
   padding-bottom: 80px;
+  padding-left: 5rem;
   background-color: color-mix(in srgb, var(--background-color), transparent 95%);
   overflow: hidden;
   position: relative;
@@ -17,6 +18,11 @@
   text-align: start;
   margin-bottom: 2rem;
 }
+
+.hero .hero-description {
+  text-align: start;
+}
+
 
 .hero .hero-title h1 {
   font-size: 2.5rem; 
