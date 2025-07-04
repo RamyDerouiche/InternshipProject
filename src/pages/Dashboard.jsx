@@ -23,7 +23,7 @@ function Dashboard() {
             </div>
           </div>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-6">
           <div className="card shadow-sm h-100 d-flex flex-column align-items-center justify-content-center p-4">
             <div className="progress-circle position-relative">
               <span className="progress-value"><strong>35%</strong></span>
@@ -31,7 +31,7 @@ function Dashboard() {
             <p className="mt-3 mb-0 text-center text-muted">Les tâches complétées d'aujourd'hui.</p>
           </div>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-6">
           <div className="card shadow-sm h-100 text-center">
             <div className="card-body d-flex flex-column align-items-center justify-content-center">
               <i className="bi bi-calendar2-week display-6 text-primary mb-3"></i>
@@ -39,7 +39,7 @@ function Dashboard() {
             </div>
           </div>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-6">
           <div className="card shadow-sm h-100 text-center">
             <div className="card-body d-flex flex-column align-items-center justify-content-center">
               <i className="bi bi-list-task display-6 text-primary mb-3"></i>
@@ -47,7 +47,7 @@ function Dashboard() {
             </div>
           </div>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-6">
           <div className="card shadow-sm h-100">
             <div className="card-body">
               <h5 className="card-title">Messages</h5>
@@ -57,7 +57,7 @@ function Dashboard() {
             </div>
           </div>
         </div>
-        <div className="col-md-4">
+        <div className="col-md-6">
           <div className="card shadow-sm h-100">
             <div className="card-body">
               <h5 className="card-title">Notifications récentes</h5>
