@@ -1,5 +1,8 @@
 import React from 'react';
 import './Home.css';
+import tacheIcon from '../tache.png';
+import tempsIcon from '../temps-restant.png';
+import ameliorationIcon from '../amelioration.png';
 
 
 function Home() {
@@ -31,42 +34,38 @@ function Home() {
             />
           </div>
         </div>
-      </div>
-          
-      <div class="row feature-boxes">
-        <div class="col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200">
-          <div class="feature-box">
-            <div class="feature-icon me-sm-4 mb-3 mb-sm-0">
-              <i class="bi bi-gear"></i>
-            </div>
-            <div class="feature-content">
-              <h3 class="feature-title">Attribuer des taches équitable et intelligente</h3>
-              <p class="feature-text">Basée sur les roles et les charges de travail.</p>
+        <div className="row feature-boxes mt-4">
+          <div className="col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200"> 
+            <div className="feature-box"> 
+              <div className="feature-icon me-sm-4 mb-3 mb-sm-0"> 
+                <img src={tacheIcon} alt="Tâches" /> 
+              </div> 
+              <div className="feature-content"> 
+                <h3 className="feature-title">Attribuer des taches équitable et intelligente</h3> 
+                <p className="feature-text">Basée sur les roles et les charges de travail.</p> 
+              </div> 
+            </div> 
+          </div>
+        <div className="col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
+            <div className="feature-box">
+              <div className="feature-icon me-sm-4 mb-3 mb-sm-0">
+                <img src={tempsIcon} alt="Suivi" />
+              </div>
+              <div className="feature-content">
+                <h3 className="feature-title">Suivi en temps réel</h3>
+                <p className="feature-text">De l'avancement, des gloulots d'étranglement et des responsabilités.</p>
             </div>
           </div>
         </div>
-
-        <div class="col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="300">
-          <div class="feature-box">
-            <div class="feature-icon me-sm-4 mb-3 mb-sm-0">
-              <i class="bi bi-tache"></i> <img src={`tache.png`}/>
-
-            </div>
-            <div class="feature-content">
-              <h3 class="feature-title">Suivi en temps réel</h3>
-              <p class="feature-text">De l'avancement, des gloulots d'étranglement et des responsabilités.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
-          <div class="feature-box">
-            <div class="feature-icon me-sm-4 mb-3 mb-sm-0">
-              <i class="bi bi-list-task"></i>
-            </div>
-            <div class="feature-content">
-              <h3 class="feature-title">Amélioration de la productivité</h3>
-              <p class="feature-text">Grace à l'automatisation, aux suggestions et aux statistiques managériales.</p>
+        <div className="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+            <div className="feature-box">
+              <div className="feature-icon me-sm-4 mb-3 mb-sm-0">
+                <img src={ameliorationIcon} alt="Productivité" />
+              </div>
+              <div className="feature-content">
+                <h3 className="feature-title">Amélioration de la productivité</h3>
+                <p className="feature-text">Grace à l'automatisation, aux suggestions et aux statistiques managériales.</p>
+              </div>
             </div>
           </div>
         </div>

@@ -1,46 +1,20 @@
 <div className="row feature-boxes mt-4"> 
 
-39
 
-+ <div className="col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200"> 
+<div className="col-lg-4 mb-4 mb-lg-0" data-aos="fade-up" data-aos-delay="200"> 
 
-40
+ <div className="feature-box"> 
+<div className="feature-icon me-sm-4 mb-3 mb-sm-0"> 
+<img src={tacheIcon} alt="Tâches" /> 
+</div> 
+<div className="feature-content"> 
+<h3 className="feature-title">Attribuer des taches équitable et intelligente</h3> 
+<p className="feature-text">Basée sur les roles et les charges de travail.</p> 
+</div> 
 
-+ <div className="feature-box"> 
-
-41
-
-+ <div className="feature-icon me-sm-4 mb-3 mb-sm-0"> 
-
-42
-
-+ <img src={tacheIcon} alt="Tâches" /> 
-
-43
-
-+ </div> 
-
-44
-
-+ <div className="feature-content"> 
-
-45
-
-+ <h3 className="feature-title">Attribuer des taches équitable et intelligente</h3> 
-
-46
-
-+ <p className="feature-text">Basée sur les roles et les charges de travail.</p> 
-
-47
-
-+ </div> 
-
-4548
 
 </div> 
 
-4649
 
 </div>
 
