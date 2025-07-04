@@ -53,6 +53,7 @@
 
 .hero .feature-boxes {
   margin-top: 2rem;
+  margin-left: -2rem;
 }
 
 .hero .feature-boxes .feature-box {
