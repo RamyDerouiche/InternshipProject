@@ -11,7 +11,6 @@ import Dashboard from './pages/Dashboard';
 import Ressources from './pages/Ressources';
 import Assistance from './pages/Assistance';
 
-
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
 
