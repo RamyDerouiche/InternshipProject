@@ -1,111 +1,159 @@
-const getGreeting = () => {
-    const hour = new Date().getHours();
-    if (hour >= 5 && hour < 12) return 'Bonjour';
-    if (hour >= 12 && hour < 18) return 'Bon après-midi';
-    return 'Bonsoir';
-  };
+.gitmodules
+Nouveau
++3
+-0
 
-  const [greeting, setGreeting] = useState('');
+[submodule "Contact_Page_ReactJS"]
+path = Contact_Page_ReactJS
+url = https://github.com/Rahulfordev/Contact_Page_ReactJS.git
+src/App.jsx
++2
+-0
+
+import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import Navbar from './components/Navbar';
+import Login from './components/Login';
+import Tasks from './pages/Tasks';
+import UploadDocuments from './pages/UploadDocuments';
+import Calendar from './pages/Calendar';
+import Dashboard from './pages/Dashboard';
+import Ressources from './pages/Ressources';
+import Assistance from './pages/Assistance';
+
+function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
-    setGreeting(getGreeting());
+    const savedUser = localStorage.getItem('user');
+    if (savedUser) {
+      setLoggedIn(true);
+    }
   }, []);
 
-  const user = { name: 'John Doe', role: 'Support' };
+  return (
+    <>
+      <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/calendar" element={<Calendar />} />
+        <Route path="/tasks" element={<Tasks />} />
+        <Route path="/upload-documents" element={<UploadDocuments />} />
+        <Route path="/ressources" element={<Ressources />} />
+        <Route path="/contact" element={<Assistance />} />
 
-  const initialCards = [
-    { id: 'projects', title: 'Projects', text: '5 active projects' },
-    { id: 'tasks', title: 'Tasks', text: '24 tasks pending' },
-    { id: 'team', title: 'Team', text: '6 members' },
-    { id: 'finance', title: 'Finance', text: 'Quarterly review soon' },
-    { id: 'activities', title: 'Activities', text: '3 new updates' },
-  ];
+      </Routes>
+    </>
+  );
+}
 
-  const [cards, setCards] = useState(initialCards);
-  const [dragOver, setDragOver] = useState(null);
+export default App;
+src/pages/Assistance.css
++8
+-0
 
-  const handleDragStart = (e, index) => {
-    e.dataTransfer.setData('text/plain', index);
-  };
+.assistance-page {
+  padding-top: 140px;
+  padding-bottom: 80px;
+}
 
-  const handleDragOver = (e) => {
-    e.preventDefault();
-  };
+.contact .form-wrapper button {
+  margin-top: 15px;
+}
+src/pages/Assistance.jsx
++88
+-0
 
-  const handleDragEnter = (idx) => {
-    setDragOver(idx);
-  };
+import React from 'react';
+import './Assistance.css';
 
-  const handleDragLeave = () => {
-    setDragOver(null);
-  };
-
-  const handleDrop = (e, dropIndex) => {
-    e.preventDefault();
-    const dragIndex = parseInt(e.dataTransfer.getData('text/plain'), 10);
-    if (dragIndex === dropIndex) {
-      setDragOver(null);
-      return;
-    }
-    const updated = [...cards];
-    const [removed] = updated.splice(dragIndex, 1);
-    updated.splice(dropIndex, 0, removed);
-    setCards(updated);
-    setDragOver(null);
-  };
-
-  const menuItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: 'bi-speedometer2' },
-    { id: 'project', label: 'Project', icon: 'bi-briefcase' },
-    { id: 'task', label: 'Task', icon: 'bi-check-circle' },
-    { id: 'team', label: 'Team', icon: 'bi-people' },
-    { id: 'client', label: 'Client', icon: 'bi-person-circle' },
-    { id: 'finance', label: 'Finance', icon: 'bi-bar-chart-line' },
-    { id: 'analytics', label: 'Analytics', icon: 'bi-graph-up' },
-    { id: 'notifications', label: 'Notifications', icon: 'bi-bell' },
-    { id: 'support', label: 'Support', icon: 'bi-headset' },
-    { id: 'settings', label: 'Settings', icon: 'bi-gear' },
-  ];
-
-<div className="dashboard-wrapper d-flex">
-      <aside className="sidebar d-flex flex-column">
-        <div className="p-3 border-bottom fw-bold d-flex align-items-center">
-          <i className="bi bi-grid-fill me-2"></i>Drageasy
-        </div>
-<ul className="nav flex-column px-2 pt-3">
-          {menuItems.map((item) => (
-            <li key={item.id} className="nav-item mb-1">
-              <span className="nav-link d-flex align-items-center">
-                <i className={`bi ${item.icon} me-2`}></i>
-                {item.label}
-              </span>
-            </li>
-          ))}
-        </ul>
-        <div className="mt-auto p-3 border-top small">
-          <div>{user.name}</div>
-          <div className="text-muted">{user.role}</div>
-</aside>
-      <main className="flex-fill p-4">
-        <h2 className="mb-4">
-          {greeting}, {user.name.split(' ')[0]} !
-        </h2>
-        <div className="row g-3">
-          {cards.map((card, idx) => (
-            <div
-              key={card.id}
-              className="col-md-6 col-lg-4"
-              draggable
-              onDragStart={(e) => handleDragStart(e, idx)}
-              onDragOver={handleDragOver}
-              onDrop={(e) => handleDrop(e, idx)}
-              onDragEnter={() => handleDragEnter(idx)}
-              onDragLeave={handleDragLeave}
-            >
-              <div className={`card card-custom h-100 ${dragOver === idx ? 'drag-over' : ''}`}>
-                <div className="card-body">
-                  <h5 className="card-title">{card.title}</h5>
-                  <p className="card-text">{card.text}</p>
-                </div>
+function Assistance() {
+  return (
+    <section id="contact" className="contact section assistance-page">
+      <div className="container section-title" data-aos="fade-up">
+        <h2>Assistance</h2>
+      </div>
+      <div className="container" data-aos="fade-up" data-aos-delay="100">
+        <div className="row gy-4 mb-5">
+          <div className="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div className="info-card">
+              <div className="icon-box">
+                <i className="bi bi-telephone" />
               </div>
+              <h3>Numéro de contact</h3>
+              <p>
+                Mobile: +216 20700600
+                <br />
+                Email: info@example.com
+              </p>
             </div>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-lg-12">
+            <div className="form-wrapper" data-aos="fade-up" data-aos-delay="400">
+              <form className="php-email-form">
+                <div className="row">
+                  <div className="col-md-6 form-group">
+                    <div className="input-group">
+                      <span className="input-group-text"><i className="bi bi-person" /></span>
+                      <input type="text" name="name" className="form-control" placeholder="Your name*" required />
+                    </div>
+                  </div>
+                  <div className="col-md-6 form-group">
+                    <div className="input-group">
+                      <span className="input-group-text"><i className="bi bi-envelope" /></span>
+                      <input type="email" name="email" className="form-control" placeholder="Email address*" required />
+                    </div>
+                  </div>
+                </div>
+                <div className="row mt-3">
+                  <div className="col-md-6 form-group">
+                    <div className="input-group">
+                      <span className="input-group-text"><i className="bi bi-phone" /></span>
+                      <input type="text" name="phone" className="form-control" placeholder="Phone number*" required />
+                    </div>
+                  </div>
+                  <div className="col-md-6 form-group">
+                    <div className="input-group">
+                      <span className="input-group-text"><i className="bi bi-list" /></span>
+                      <select name="subject" className="form-control" required>
+                        <option value="">Select service*</option>
+                        <option value="Service 1">test1</option>
+                        <option value="Service 2">test2</option>
+                        <option value="Service 3">test3</option>
+                        <option value="Service 4">test4</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="form-group mt-3">
+                    <div className="input-group">
+                      <span className="input-group-text"><i className="bi bi-chat-dots" /></span>
+                      <textarea name="message" className="form-control" rows="6" placeholder="Write a message*" required />
+                    </div>
+                  </div>
+                  <div className="my-3">
+                    <div className="loading">Loading</div>
+                    <div className="error-message" />
+                    <div className="sent-message">Your message has been sent. Thank you!</div>
+                  </div>
+                  <div className="text-center">
+                    <button type="submit">Submit Message</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default Assistance;
