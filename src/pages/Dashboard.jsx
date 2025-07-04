@@ -1,4 +1,4 @@
-import React, { UseEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import './Dashboard.css';
 
@@ -17,7 +17,7 @@ function Dashboard() {
     setGreeting(getGreeting());
   }, []);
 
-  const user = { name: 'John Doe', role: 'Support' };
+  const user = { name: 'User2', role: 'Support' };
 
   const initialCards = [
     { id: 'projects', title: 'Projects', text: '5 active projects' },
@@ -77,9 +77,6 @@ function Dashboard() {
 return (
     <div className="dashboard-wrapper d-flex">
       <aside className="sidebar d-flex flex-column">
-        <div className="p-3 border-bottom fw-bold d-flex align-items-center">
-          <i className="bi bi-grid-fill me-2"></i>Drageasy
-        </div>
         <ul className="nav flex-column px-2 pt-3">
           {menuItems.map((item) => (
             <li key={item.id} className="nav-item mb-1">

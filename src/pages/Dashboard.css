@@ -1,22 +1,27 @@
 .dashboard-wrapper {
-    min-height: 100vh;
+    min-height: calc(100vh - 70px);
+    margin-top: 70px;
+
 }
 
 .sidebar {
     width: 220px;
-    background-color: #f8f9fa;
+    background-color: var(--sidebar-background, #f8f9fa);
+    border-right: 1px solid var(--sidebar_border, #dee2e6)
 }
 
 .sidebar .nav-link{
-    color: #555;
+    color: var(--sidebar-foreground, #555);
     cursor: pointer;
 }
 
 .sidebar .nav-link:hover {
-    background-color: #e9ecef;
+    background-color: var(--sidebar-accent, #e9ecef);
 }
 
-.card-custom {
-    border: none;
-    border-radius: 0.75rem;
+.sitename {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.25rem;
 }

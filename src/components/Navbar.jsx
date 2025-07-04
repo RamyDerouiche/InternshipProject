@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
+import Sitename from '../pages/Sitename';
 
 function Navbar({ loggedIn, setLoggedIn }) {
     const [scrolled, setScrolled] = useState(false);
@@ -30,31 +31,23 @@ function Navbar({ loggedIn, setLoggedIn }) {
   return (
     <header id="header" className="header fixed-top">
     <div className="container d-flex align-items-center justify-content-between">
-        <NavLink to="/" className="logo d-flex align-items-center me-auto me-xl-0">
-          <h1 className="sitename">SmartAssign</h1><span>.</span>
+
+        <NavLink to="/" className="me-auto me-xl-0" >
+          <Sitename />
         </NavLink>
 
-        <nav className="navmenu">
-          <ul>
-            {!loggedIn && (
-              <>
+
+        {!loggedIn && (
+            <nav className="navmenu">
+              <ul>
                 <li><NavLink to="/">Accueil</NavLink></li>
                 <li><NavLink to="/about">A Propos</NavLink></li>
                 <li><NavLink to="/contact">Assistance</NavLink></li>
+              </ul>
+              </nav>
+        )}
 
-              </>
-            )}
-            {loggedIn && (
-              <>
-                <li><NavLink to="/dashboard">Tableau de Bord</NavLink></li>
-                <li><NavLink to="/ressources">Ressources</NavLink></li>
-                <li><NavLink to="/calendar">Calendrier</NavLink></li>
-                <li><NavLink to="/tasks">Tâches</NavLink></li>
-                <li><NavLink to="/upload-documents">Documents</NavLink></li>
-              </>
-            )}
-          </ul>
-        </nav>
+             
 
         {loggedIn ? (
           <button type="button" className="btn-login" onClick={handleLogout}>
