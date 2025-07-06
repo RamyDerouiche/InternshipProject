@@ -97,7 +97,7 @@ export function TasksCard() {
       <CardHeader className="flex flex-row items-center justify-between pb-2 px-4">
         <div className="flex items-center">
           <GripVertical className="h-4 w-4 text-muted-foreground mr-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-          <CardTitle className="text-sm font-medium">My Tasks</CardTitle>
+          <CardTitle className="text-sm font-medium">Taches</CardTitle>
         </div>
         <Button variant="ghost" size="icon" className="h-7 w-7">
           <MoreHorizontal className="h-4 w-4" />
