@@ -4,24 +4,23 @@ import { MoreHorizontal, GripVertical, ArrowRight } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { cn } from "@/lib/utils"
 
-// Dados das tarefas do Jira
 const jiraIssues = [
   {
-    id: "GAME-123",
-    title: "Character movement not working on mobile",
-    priority: "High",
-    status: "In Progress",
+    id: "TACHE-101",
+    title: "Problème d'affichage des taches sur les calendrier",
+    priority: "Elevée",
+    status: "En cours",
     assignee: {
       avatar: "/placeholder.svg?height=32&width=32",
-      initials: "AM",
+      initials: "AB",
       color: "bg-primary",
     },
   },
   {
-    id: "GAME-124",
-    title: "Implement save game functionality",
-    priority: "Medium",
-    status: "To Do",
+    id: "TACHE-102",
+    title: "Ajouter une vérification de role lors de la connexion",
+    priority: "Moyenne",
+    status: "A Faire",
     assignee: {
       avatar: "/placeholder.svg?height=32&width=32",
       initials: "SL",
@@ -29,51 +28,49 @@ const jiraIssues = [
     },
   },
   {
-    id: "GAME-125",
-    title: "Fix lighting in level 2",
-    priority: "Low",
-    status: "Done",
+    id: "TACHE-103",
+    title: "Correction du téléchargement de documents dans la page Ressources",
+    priority: "Faible",
+    status: "Terminé",
     assignee: {
       avatar: "/placeholder.svg?height=32&width=32",
-      initials: "JW",
+      initials: "LG",
       color: "bg-amber-500",
     },
   },
   {
-    id: "GAME-126",
-    title: "Optimize game for low-end devices",
-    priority: "High",
-    status: "In Progress",
+    id: "TACHE-104",
+    title: "Optimisation du chargement de la page Calendrier avec des filtres dynamiques",
+    priority: "Elevée",
+    status: "En cours",
     assignee: {
       avatar: "/placeholder.svg?height=32&width=32",
-      initials: "MG",
+      initials: "OZ",
       color: "bg-orange-500",
     },
   },
 ]
 
-// Função para obter a cor do status
 const getStatusColor = (status: string) => {
   switch (status) {
-    case "To Do":
+    case "A Faire":
       return "bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
-    case "In Progress":
+    case "En cours":
       return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300"
-    case "Done":
+    case "Terminé":
       return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
     default:
       return "bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
   }
 }
 
-// Função para obter a cor da prioridade
 const getPriorityColor = (priority: string) => {
   switch (priority) {
-    case "High":
+    case "Elevée":
       return "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300"
-    case "Medium":
+    case "Moyenne":
       return "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300"
-    case "Low":
+    case "Faible":
       return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
     default:
       return "bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
@@ -86,7 +83,7 @@ export function JiraCard() {
       <CardHeader className="flex flex-row items-center justify-between pb-2 px-4">
         <div className="flex items-center">
           <GripVertical className="h-4 w-4 text-muted-foreground mr-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-          <CardTitle className="text-sm font-medium">Jira Issues</CardTitle>
+          <CardTitle className="text-sm font-medium">Problème Signalés</CardTitle>
         </div>
         <Button variant="ghost" size="icon" className="h-7 w-7">
           <MoreHorizontal className="h-4 w-4" />
@@ -117,7 +114,7 @@ export function JiraCard() {
         </div>
         <div className="mt-4 flex justify-center">
           <Button variant="outline" size="sm" className="text-xs w-full">
-            View All Issues <ArrowRight className="ml-2 h-3 w-3" />
+            Afficher tous les problèmes <ArrowRight className="ml-2 h-3 w-3" />
           </Button>
         </div>
       </CardContent>

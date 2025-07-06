@@ -1,45 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Home from './Home';
-import About from './About';
-import Navbar from '../components/Navbar';
-import Login from '../components/Login';
-import Tasks from './Tasks';
-import UploadDocuments from './UploadDocuments';
-import Calendar from './Calendar';
-import Dashboard from './DashboardPage';
-import Ressources from './Ressources';
-import Assistance from './Assistance';
-import { ThemeProvider } from '../components/theme-provider';
+import React from 'react';
 
-function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const savedUser = localStorage.getItem('user');
-    if (savedUser) {
-      setLoggedIn(true);
-    }
-  }, []);
-
+function Ressources() {
   return (
-    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-      {!loggedIn && (
-        <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-      )}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/calendar" element={<Calendar />} />
-        <Route path="/tasks" element={<Tasks />} />
-        <Route path="/upload-documents" element={<UploadDocuments />} />
-        <Route path="/ressources" element={<Ressources />} />
-        <Route path="/contact" element={<Assistance />} />
-      </Routes>
-    </ThemeProvider>
+    <div>
+      <h2>Ressources</h2>
+      <p>will put content later</p>
+    </div>
   );
 }
 
-export default App;
+export default Ressources;
