@@ -3,71 +3,69 @@ import { Button } from "@/components/ui/button"
 import { MoreHorizontal, GripVertical, Calendar, Clock, Video, Users } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
-// Dados das reuniões
 const meetings = [
   {
     id: 1,
-    title: "Daily Standup",
+    title: "Réunion d'Equipe Quotidienne",
     time: "9:30 AM - 10:00 AM",
-    date: "Today",
+    date: "Aujourd'hui",
     participants: 8,
     isVideo: true,
   },
   {
     id: 2,
-    title: "Game Design Review",
+    title: "Revenue des Taches Hebdomadaire",
     time: "11:00 AM - 12:00 PM",
-    date: "Today",
+    date: "Aujourd'hui",
     participants: 5,
     isVideo: true,
   },
   {
     id: 3,
-    title: "Sprint Planning",
+    title: "Planification du Sprint",
     time: "2:00 PM - 3:30 PM",
-    date: "Today",
+    date: "Aujourd'hui",
     participants: 12,
     isVideo: true,
   },
   {
     id: 4,
-    title: "Art Team Sync",
+    title: "Synchronisation Equipe Technique",
     time: "10:00 AM - 11:00 AM",
-    date: "Tomorrow",
+    date: "Demain",
     participants: 6,
     isVideo: false,
   },
   {
     id: 5,
-    title: "Client Demo",
+    title: "Présentation au Responsable RH",
     time: "3:00 PM - 4:00 PM",
-    date: "Tomorrow",
+    date: "Demain",
     participants: 15,
     isVideo: true,
   },
 ]
 
-// Dados dos participantes
 const participants = [
   {
-    id: "alex",
-    name: "Alex",
+    id: "alyssa",
+    name: "Alyssa",
     avatar: "/placeholder.svg?height=32&width=32",
-    initials: "AM",
+    initials: "AB",
     color: "bg-primary",
   },
   {
-    id: "sarah",
-    name: "Sarah",
+    id: "yassine",
+    name: "Yassine",
     avatar: "/placeholder.svg?height=32&width=32",
-    initials: "SL",
+    initials: "YK",
     color: "bg-pink-500",
   },
   {
-    id: "james",
-    name: "James",
+    id: "lina",
+    name: "Lina",
     avatar: "/placeholder.svg?height=32&width=32",
-    initials: "JW",
+    initials: "LG",
     color: "bg-amber-500",
   },
 ]
@@ -78,7 +76,7 @@ export function MeetingsCard() {
       <CardHeader className="flex flex-row items-center justify-between pb-2 px-4">
         <div className="flex items-center">
           <GripVertical className="h-4 w-4 text-muted-foreground mr-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-          <CardTitle className="text-sm font-medium">Meetings</CardTitle>
+          <CardTitle className="text-sm font-medium">Réunions</CardTitle>
         </div>
         <Button variant="ghost" size="icon" className="h-7 w-7">
           <MoreHorizontal className="h-4 w-4" />
@@ -118,7 +116,7 @@ export function MeetingsCard() {
                   )}
                 </div>
                 <Button variant="outline" size="sm" className="h-6 text-[10px]">
-                  Join
+                  Rejoindre
                 </Button>
               </div>
             </div>
@@ -126,7 +124,7 @@ export function MeetingsCard() {
         </div>
         <div className="mt-4">
           <Button variant="default" size="sm" className="w-full text-xs bg-primary hover:bg-primary/90">
-            Schedule Meeting
+            Planifier une Réunion
           </Button>
         </div>
       </CardContent>
