@@ -36,9 +36,11 @@ function App() {
     if (loggedIn) {
       document.body.style.backgroundColor = '#ffffff';
       document.body.style.color = '#000000';
+      document.documentElement.style.setProperty('--background-color', '#ffffff');
     } else {
       document.body.style.backgroundColor = '';
       document.body.style.color = '';
+      document.documentElement.style.removeProperty('--background-color');
     }
   }, [loggedIn]);
 
@@ -65,6 +67,7 @@ function App() {
   if (!loggedIn) {
     return (
       <>
+
         <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
         {routes}
       </>
