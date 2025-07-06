@@ -7,7 +7,7 @@ import Login from '../components/Login';
 import Tasks from './Tasks';
 import UploadDocuments from './UploadDocuments';
 import Calendar from './Calendar';
-import Dashboard from './Dashboard';
+import Dashboard from './DashboardPage';
 import Ressources from './Ressources';
 import Assistance from './Assistance';
 import { ThemeProvider } from '../components/theme-provider';
