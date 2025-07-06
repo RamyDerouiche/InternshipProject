@@ -21,7 +21,6 @@ import {
 } from "lucide-react"
 
 
-// Mapeamento de ícones
 const iconMap: Record<string, React.ReactNode> = {
   LayoutDashboard: <LayoutDashboard size={16} />,
   Gamepad2: <Gamepad2 size={16} />,
@@ -35,7 +34,6 @@ const iconMap: Record<string, React.ReactNode> = {
   Settings: <Settings size={16} />,
 }
 
-// Menu item component with router link and drag support
 const SortableMenuItem = ({ item }: { item: { id: string; label: string; icon: string; path: string } }) => {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: item.id })
 
@@ -67,7 +65,6 @@ const SortableMenuItem = ({ item }: { item: { id: string; label: string; icon: s
   )
 }
 
-// Modificar o componente Sidebar para incluir o logotipo e torná-lo sticky
 export function VertexSidebar({
   items,
   activeUser,
@@ -104,7 +101,7 @@ export function VertexSidebar({
           <button
             type="button"
             onClick={onLogout}
-            className="mt-3 text-xs text-left text-primary hover:underline"
+            className="mt-3 text-xs text-left text-primary hover:bg-red-500 hover:text-white"
           >
             Logout
           </button>
