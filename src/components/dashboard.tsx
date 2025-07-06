@@ -2,25 +2,10 @@ import { useState, useEffect } from "react"
 import { DndContext, type DragEndEvent, closestCenter } from "@dnd-kit/core"
 import { SortableContext, arrayMove, verticalListSortingStrategy } from "@dnd-kit/sortable"
 
-import { VertexSidebar } from "./vertex-sidebar"
 import { DraggableCards } from "./draggable-cards"
 import { ThemeToggle } from "./theme-toggle"
-import { Button } from "./ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 
-// Dados iniciais do menu
-const initialMenuItems = [
-  { id: "dashboard", label: "Dashboard", icon: "LayoutDashboard" },
-  { id: "games", label: "Games", icon: "Gamepad2" },
-  { id: "tasks", label: "Tasks", icon: "CheckCircle" },
-  { id: "team", label: "Team", icon: "Users" },
-  { id: "meetings", label: "Meetings", icon: "CalendarDays" },
-  { id: "jira", label: "Jira", icon: "Trello" },
-  { id: "discord", label: "Discord", icon: "MessageSquare" },
-  { id: "slack", label: "Slack", icon: "MessageCircle" },
-  { id: "analytics", label: "Analytics", icon: "LineChart" },
-  { id: "settings", label: "Settings", icon: "Settings" },
-]
 
 // Dados iniciais dos cards
 const initialCards = [
@@ -42,7 +27,6 @@ const getGreeting = () => {
 }
 
 export default function Dashboard() {
-  const [menuItems, setMenuItems] = useState(initialMenuItems)
   const [cards, setCards] = useState(initialCards)
   const [activeUser, setActiveUser] = useState({
     name: "Alex Morgan",
@@ -55,20 +39,6 @@ export default function Dashboard() {
   useEffect(() => {
     setGreeting(getGreeting())
   }, [])
-
-  // Manipulador para quando termina o arrasto do menu
-  const handleMenuDragEnd = (event: DragEndEvent) => {
-    const { active, over } = event
-
-    if (over && active.id !== over.id) {
-      setMenuItems((items) => {
-        const oldIndex = items.findIndex((item) => item.id === active.id)
-        const newIndex = items.findIndex((item) => item.id === over.id)
-
-        return arrayMove(items, oldIndex, newIndex)
-      })
-    }
-  }
 
   // Manipulador para quando termina o arrasto dos cards
   const handleCardsDragEnd = (event: DragEndEvent) => {
@@ -85,14 +55,7 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="flex min-h-screen font-['Inter',sans-serif]">
-      <DndContext collisionDetection={closestCenter} onDragEnd={handleMenuDragEnd}>
-        <SortableContext items={menuItems.map((item) => item.id)} strategy={verticalListSortingStrategy}>
-          <VertexSidebar items={menuItems} activeUser={activeUser} />
-        </SortableContext>
-      </DndContext>
-
-      <main className="flex-1 p-6">
+    <div className="flex-1 p-6 bg-white min-h-screen font-['Inter',sans-serif]">
         <div className="mb-6 flex justify-between items-center">
           <div>
             <h1 className="text-xl font-semibold">{`${greeting}, ${activeUser.name.split(" ")[0]}!`}</h1>
@@ -100,9 +63,6 @@ export default function Dashboard() {
           </div>
           <div className="flex items-center gap-4">
             <ThemeToggle />
-            <Button variant="default" className="bg-primary hover:bg-primary/90">
-              Join Community
-            </Button>
             <Avatar className="h-9 w-9">
               <AvatarImage src={activeUser.avatar || "/placeholder.svg"} alt={activeUser.name} />
               <AvatarFallback>AM</AvatarFallback>
@@ -115,7 +75,6 @@ export default function Dashboard() {
             <DraggableCards cards={cards} />
           </SortableContext>
         </DndContext>
-      </main>
-    </div>
+      </div>
   )
 }
