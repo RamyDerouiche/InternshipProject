@@ -4,15 +4,14 @@ import { MoreHorizontal, Check, GripVertical, MessageSquare, ListChecks } from "
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { cn } from "@/lib/utils"
 
-// Dados das tarefas
 const tasks = [
   {
     id: 1,
-    name: "Implement character controller",
+    name: "Rédiger le rapport de stage",
     completed: false,
     assignee: {
       avatar: "/placeholder.svg?height=32&width=32",
-      initials: "AM",
+      initials: "AB",
       color: "bg-primary",
     },
     metrics: {
@@ -22,11 +21,11 @@ const tasks = [
   },
   {
     id: 2,
-    name: "Design level 3 environment",
+    name: "Participer a la réunion quotidienne",
     completed: false,
     assignee: {
       avatar: "/placeholder.svg?height=32&width=32",
-      initials: "JD",
+      initials: "YK",
       color: "bg-pink-500",
     },
     metrics: {
@@ -36,11 +35,11 @@ const tasks = [
   },
   {
     id: 3,
-    name: "Fix collision detection bug",
+    name: "Corriger le bug du formulaire",
     completed: true,
     assignee: {
       avatar: "/placeholder.svg?height=32&width=32",
-      initials: "RK",
+      initials: "LG",
       color: "bg-amber-500",
     },
     metrics: {
@@ -50,11 +49,11 @@ const tasks = [
   },
   {
     id: 4,
-    name: "Create enemy AI behavior",
+    name: "Concevoir la maquette de l'application",
     completed: false,
     assignee: {
       avatar: "/placeholder.svg?height=32&width=32",
-      initials: "SL",
+      initials: "OZ",
       color: "bg-orange-500",
     },
     metrics: {
@@ -64,11 +63,11 @@ const tasks = [
   },
   {
     id: 5,
-    name: "Optimize rendering performance",
+    name: "Optimiser le code backend",
     completed: true,
     assignee: {
       avatar: "/placeholder.svg?height=32&width=32",
-      initials: "TW",
+      initials: "ST",
       color: "bg-yellow-500",
     },
     metrics: {
@@ -78,7 +77,7 @@ const tasks = [
   },
   {
     id: 6,
-    name: "Implement save/load system",
+    name: "Sauvegarder la base de données",
     completed: false,
     assignee: {
       avatar: "/placeholder.svg?height=32&width=32",

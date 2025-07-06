@@ -7,7 +7,6 @@ import { ThemeToggle } from "./theme-toggle"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 
 
-// Dados iniciais dos cards
 const initialCards = [
   { id: "games", type: "games" },
   { id: "tasks", type: "tasks" },
@@ -18,7 +17,6 @@ const initialCards = [
   { id: "meetings", type: "meetings" },
 ]
 
-// Adicionar a função para obter a saudação baseada na hora
 const getGreeting = () => {
   const hour = new Date().getHours()
   if (hour >= 5 && hour < 12) return "Good morning"
@@ -29,18 +27,16 @@ const getGreeting = () => {
 export default function Dashboard() {
   const [cards, setCards] = useState(initialCards)
   const [activeUser, setActiveUser] = useState({
-    name: "Alex Morgan",
-    role: "Game Developer",
+    name: "User2",
+    role: "web Developer",
     avatar: "/placeholder.svg?height=40&width=40",
   })
   const [greeting, setGreeting] = useState("")
 
-  // Atualizar a saudação quando o componente montar
   useEffect(() => {
     setGreeting(getGreeting())
   }, [])
 
-  // Manipulador para quando termina o arrasto dos cards
   const handleCardsDragEnd = (event: DragEndEvent) => {
     const { active, over } = event
 
@@ -59,7 +55,6 @@ export default function Dashboard() {
         <div className="mb-6 flex justify-between items-center">
           <div>
             <h1 className="text-xl font-semibold">{`${greeting}, ${activeUser.name.split(" ")[0]}!`}</h1>
-            <p className="text-sm text-muted-foreground">Your game development dashboard</p>
           </div>
           <div className="flex items-center gap-4">
             <ThemeToggle />

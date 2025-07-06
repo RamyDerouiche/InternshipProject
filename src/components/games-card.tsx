@@ -6,30 +6,30 @@ import { MoreHorizontal, Plus, GripVertical } from "lucide-react"
 const games = [
   {
     id: "cosmic-adventure",
-    name: "Cosmic Adventure",
+    name: "Project Marketing",
     progress: 65,
-    status: "In Development",
+    status: "Phase de développement",
     image: "/placeholder.svg?height=80&width=120",
   },
   {
     id: "mystic-realms",
-    name: "Mystic Realms",
+    name: "Plateforme Web",
     progress: 40,
-    status: "Concept Phase",
+    status: "Conception et structuration",
     image: "/placeholder.svg?height=80&width=120",
   },
   {
     id: "robot-uprising",
-    name: "Robot Uprising",
+    name: "Compagne Réseaux Sociaux",
     progress: 85,
-    status: "Beta Testing",
+    status: "En test avant lancement",
     image: "/placeholder.svg?height=80&width=120",
   },
   {
     id: "space-odyssey",
-    name: "Space Odyssey",
+    name: "Formation Interne",
     progress: 20,
-    status: "Pre-production",
+    status: "En préparation par le responsable RH",
     image: "/placeholder.svg?height=80&width=120",
   },
 ]
@@ -40,7 +40,7 @@ export function GamesCard() {
       <CardHeader className="flex flex-row items-center justify-between pb-2 px-4">
         <div className="flex items-center">
           <GripVertical className="h-4 w-4 text-muted-foreground mr-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-          <CardTitle className="text-sm font-medium">Game Projects</CardTitle>
+          <CardTitle className="text-sm font-medium">Projets</CardTitle>
         </div>
         <Button variant="ghost" size="icon" className="h-7 w-7">
           <MoreHorizontal className="h-4 w-4" />
@@ -50,7 +50,7 @@ export function GamesCard() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="flex flex-col items-center justify-center p-3 border border-dashed rounded-md h-[140px]">
             <Plus className="h-6 w-6 mb-2 text-muted-foreground" />
-            <span className="text-xs">New Game Project</span>
+            <span className="text-xs">Nouveau Projet</span>
           </div>
 
           {games.map((game) => (

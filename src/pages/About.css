@@ -110,3 +110,13 @@
   padding-left:5.5rem;
   text-align: center;
 }
+
+section, .section
+ {
+    color: var(--default-color);
+    background-color: var(--background-color);
+    padding: 170px 0;
+    scroll-margin-top: 98px;
+    overflow: clip;
+    padding-left: 4rem;
+}
