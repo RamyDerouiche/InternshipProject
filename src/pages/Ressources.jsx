@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import Navbar from './components/Navbar'
-import Login from './components/Login'
-import Tasks from './pages/Tasks'
-import UploadDocuments from './pages/UploadDocuments'
-import Calendar from './pages/Calendar'
-import Dashboard from './pages/Dashboard'
-import Ressources from './pages/Ressources'
-import Assistance from './pages/Assistance'
-import { ThemeProvider } from './components/theme-provider'
+import Home from './Home';
+import About from './About';
+import Navbar from '../components/Navbar';
+import Login from '../components/Login';
+import Tasks from './Tasks';
+import UploadDocuments from './UploadDocuments';
+import Calendar from './Calendar';
+import Dashboard from './Dashboard';
+import Ressources from './Ressources';
+import Assistance from './Assistance';
+import { ThemeProvider } from '../components/theme-provider';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
