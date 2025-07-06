@@ -1,12 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import Navbar from './components/Navbar'
+import Login from './components/Login'
+import Tasks from './pages/Tasks'
+import UploadDocuments from './pages/UploadDocuments'
+import Calendar from './pages/Calendar'
+import Dashboard from './pages/Dashboard'
+import Ressources from './pages/Ressources'
+import Assistance from './pages/Assistance'
+import { ThemeProvider } from './components/theme-provider'
 
-function Ressources() {
+function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const savedUser = localStorage.getItem('user');
+    if (savedUser) {
+      setLoggedIn(true);
+    }
+  }, []);
+
   return (
-    <div>
-      <h2>Ressources</h2>
-      <p>will put content later. choosing the candidates for a project this page has all the members ranked by their PFE grade, this page is only available for admin page and will be removed if a member logs in</p>
-    </div>
+    <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+      {!loggedIn && (
+        <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+      )}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login setLoggedIn={setLoggedIn} />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/calendar" element={<Calendar />} />
+        <Route path="/tasks" element={<Tasks />} />
+        <Route path="/upload-documents" element={<UploadDocuments />} />
+        <Route path="/ressources" element={<Ressources />} />
+        <Route path="/contact" element={<Assistance />} />
+      </Routes>
+    </ThemeProvider>
   );
 }
 
-export default Ressources;
+export default App;

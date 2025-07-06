@@ -7,7 +7,7 @@ import Login from './components/Login';
 import Tasks from './pages/Tasks';
 import UploadDocuments from './pages/UploadDocuments';
 import Calendar from './pages/Calendar';
-import Dashboard from './pages/Dashboard';
+import Dashboard from './pages/DashboardPage';
 import Ressources from './pages/Ressources';
 import Assistance from './pages/Assistance';
 
