@@ -53,8 +53,8 @@ const SortableMenuItem = ({ item }: { item: { id: string; label: string; icon: s
       className={({ isActive }) =>
         cn(
           "flex items-center p-2.5 rounded-md cursor-grab active:cursor-grabbing mb-1 group",
-          isDragging ? "bg-secondary opacity-80" : "hover:bg-secondary",
-          isActive && "bg-secondary"
+          isDragging && "opacity-80",
+          isActive ? "text-red-600" : "hover:text-red-600"
         )
       }
       {...attributes}
