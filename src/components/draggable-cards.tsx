@@ -5,8 +5,6 @@ import { GamesCard } from "./games-card"
 import { TasksCard } from "./tasks-card"
 import { TeamCard } from "./team-card"
 import { JiraCard } from "./jira-card"
-import { DiscordCard } from "./discord-card"
-import { SlackCard } from "./slack-card"
 import { MeetingsCard } from "./meetings-card"
 import { cn } from "@/lib/utils"
 
@@ -31,10 +29,6 @@ const SortableCard = ({ id, type }: { id: string; type: string }) => {
         return <TeamCard />
       case "jira":
         return <JiraCard />
-      case "discord":
-        return <DiscordCard />
-      case "slack":
-        return <SlackCard />
       case "meetings":
         return <MeetingsCard />
       default:
@@ -62,7 +56,7 @@ export function DraggableCards({ cards }: { cards: Array<{ id: string; type: str
   // Função para determinar a largura do card com base no tipo
   const getCardWidth = (type: string) => {
     if (type === "games") return "col-span-12"
-    if (type === "jira" || type === "discord" || type === "slack") return "col-span-12 md:col-span-4"
+    if (type === "jira") return "col-span-12 md:col-span-4"
     return "col-span-12 md:col-span-6"
   }
 

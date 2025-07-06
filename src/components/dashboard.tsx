@@ -12,8 +12,6 @@ const initialCards = [
   { id: "tasks", type: "tasks" },
   { id: "team", type: "team" },
   { id: "jira", type: "jira" },
-  { id: "discord", type: "discord" },
-  { id: "slack", type: "slack" },
   { id: "meetings", type: "meetings" },
 ]
 
@@ -21,7 +19,7 @@ const getGreeting = () => {
   const hour = new Date().getHours()
   if (hour >= 5 && hour < 12) return "Good morning"
   if (hour >= 12 && hour < 18) return "Good afternoon"
-  return "Good evening"
+  return "Bienvenue"
 }
 
 export default function Dashboard() {
