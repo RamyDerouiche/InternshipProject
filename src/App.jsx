@@ -33,7 +33,13 @@ function App() {
   }, []);
 
   useEffect(() => {
-    document.body.style.backgroundColor = loggedIn ? '#ffffff' : '';
+    if (loggedIn) {
+      document.body.style.backgroundColor = '#ffffff';
+      document.body.style.color = '#000000';
+    } else {
+      document.body.style.backgroundColor = '';
+      document.body.style.color = '';
+    }
   }, [loggedIn]);
 
   const handleLogout = () => {
