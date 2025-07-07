@@ -113,7 +113,7 @@ export function JiraCard() {
           ))}
         </div>
         <div className="mt-4 flex justify-center">
-          <Button variant="outline" size="sm" className="text-xs w-full">
+          <Button variant="outline" size="sm" className="w-full text-white bg-red-500 hover:bg-red-600 text-xs">
             Afficher tous les problèmes <ArrowRight className="ml-2 h-3 w-3" />
           </Button>
         </div>

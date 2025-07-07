@@ -15,11 +15,17 @@
     border-radius: 4px;
     transition: 0.3s;
 }
+.logout-btn {
+  background:#ef4444;
+  color: #ffffff;
+}
+
 .logout-btn:hover {
-  background:#ff0000;
+  background:#dc2626;
   color: #ffffff;
   text-decoration: none;
 }
+
 a {
     color: var(--accent-color);
     text-decoration: none;

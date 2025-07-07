@@ -26,7 +26,7 @@ export default function Dashboard() {
   const [cards, setCards] = useState(initialCards)
   const [activeUser, setActiveUser] = useState({
     name: "User2",
-    role: "web Developer",
+    role: "Web Developer",
     avatar: "/placeholder.svg?height=40&width=40",
   })
   const [greeting, setGreeting] = useState("")
@@ -58,7 +58,7 @@ export default function Dashboard() {
             <ThemeToggle />
             <Avatar className="h-9 w-9">
               <AvatarImage src={activeUser.avatar || "/placeholder.svg"} alt={activeUser.name} />
-              <AvatarFallback>AM</AvatarFallback>
+              <AvatarFallback>Us</AvatarFallback>
             </Avatar>
           </div>
         </div>

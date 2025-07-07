@@ -90,7 +90,7 @@ export function VertexSidebar({
         <div className="flex items-center">
           <Avatar className="h-7 w-7 mr-2">
             <AvatarImage src={activeUser.avatar || "/placeholder.svg"} alt={activeUser.name} />
-            <AvatarFallback>AM</AvatarFallback>
+            <AvatarFallback>Us</AvatarFallback>
           </Avatar>
           <div>
             <div className="font-medium text-xs">{activeUser.name}</div>
@@ -101,7 +101,7 @@ export function VertexSidebar({
           <button
             type="button"
             onClick={onLogout}
-            className="mt-3 text-xs text-left hover:bg-red-500 hover:text-white"
+            className="mt-3 text-xs text-left bg-red-600 hover:bg-red-600 text-white"
           >
             Logout
           </button>
