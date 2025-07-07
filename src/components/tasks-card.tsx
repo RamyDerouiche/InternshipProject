@@ -1,6 +1,6 @@
 import { CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { MoreHorizontal, Check, GripVertical, MessageSquare, ListChecks } from "lucide-react"
+import { MoreHorizontal, Check, GripVertical } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { cn } from "@/lib/utils"
 
@@ -14,10 +14,6 @@ const tasks = [
       initials: "AB",
       color: "bg-primary",
     },
-    metrics: {
-      comments: 5,
-      subtasks: 3,
-    },
   },
   {
     id: 2,
@@ -27,10 +23,6 @@ const tasks = [
       avatar: "/placeholder.svg?height=32&width=32",
       initials: "YK",
       color: "bg-pink-500",
-    },
-    metrics: {
-      comments: 8,
-      subtasks: 2,
     },
   },
   {
@@ -42,10 +34,6 @@ const tasks = [
       initials: "LG",
       color: "bg-amber-500",
     },
-    metrics: {
-      comments: 12,
-      subtasks: 0,
-    },
   },
   {
     id: 4,
@@ -55,10 +43,6 @@ const tasks = [
       avatar: "/placeholder.svg?height=32&width=32",
       initials: "OZ",
       color: "bg-orange-500",
-    },
-    metrics: {
-      comments: 3,
-      subtasks: 4,
     },
   },
   {
@@ -70,10 +54,6 @@ const tasks = [
       initials: "ST",
       color: "bg-yellow-500",
     },
-    metrics: {
-      comments: 7,
-      subtasks: 2,
-    },
   },
   {
     id: 6,
@@ -83,10 +63,6 @@ const tasks = [
       avatar: "/placeholder.svg?height=32&width=32",
       initials: "BH",
       color: "bg-emerald-500",
-    },
-    metrics: {
-      comments: 4,
-      subtasks: 5,
     },
   },
 ]
@@ -120,19 +96,11 @@ export function TasksCard() {
                   {task.name}
                 </span>
               </div>
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center">
                 <Avatar className="h-5 w-5">
                   <AvatarImage src={task.assignee.avatar || "/placeholder.svg"} />
                   <AvatarFallback className={task.assignee.color}>{task.assignee.initials}</AvatarFallback>
                 </Avatar>
-                <div className="flex items-center text-[10px] text-muted-foreground">
-                  <MessageSquare className="h-3 w-3 mr-1" />
-                  <span>{task.metrics.comments}</span>
-                </div>
-                <div className="flex items-center text-[10px] text-muted-foreground">
-                  <ListChecks className="h-3 w-3 mr-1" />
-                  <span>{task.metrics.subtasks}</span>
-                </div>
               </div>
             </div>
           ))}
