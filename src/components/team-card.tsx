@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button"
 import { MoreHorizontal, GripVertical } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
-// Dados da equipe
 const teamMembers = [
   {
     id: "alyssa",

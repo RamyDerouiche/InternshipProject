@@ -2,7 +2,6 @@ import { CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { MoreHorizontal, Plus, Fingerprint, ShoppingCart, Lightbulb, Target, Box, GripVertical } from "lucide-react"
 
-// Dados dos projetos
 const projects = [
   {
     id: "branding",

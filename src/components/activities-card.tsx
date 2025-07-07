@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button"
 import { MoreHorizontal, GripVertical } from "lucide-react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
-// Dados das atividades com avatares atualizados
 const activities = [
   {
     id: 1,
@@ -86,13 +85,11 @@ export function ActivitiesCard() {
       </CardHeader>
       <CardContent className="px-4 pb-4 h-[350px] overflow-auto">
         <div className="relative pl-5">
-          {/* Linha vertical do timeline */}
           <div className="absolute top-0 bottom-0 left-2 w-0.5 bg-gray-200"></div>
 
           <div className="space-y-4">
             {activities.map((activity, index) => (
               <div key={activity.id} className="relative">
-                {/* Avatar no lugar do ícone */}
                 <div className="absolute -left-5 mt-1">
                   <Avatar className="h-4 w-4 ring-2 ring-white">
                     <AvatarImage src={activity.user.avatar} />

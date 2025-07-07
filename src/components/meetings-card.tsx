@@ -123,7 +123,7 @@ export function MeetingsCard() {
           ))}
         </div>
         <div className="mt-4">
-          <Button variant="default" size="sm" className="w-full text-xs bg-primary hover:bg-primary/90">
+          <Button variant="default" size="sm" className="w-full text-white hover:bg-red-500/90">
             Planifier une Réunion
           </Button>
         </div>

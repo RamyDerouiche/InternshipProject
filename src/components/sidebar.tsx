@@ -5,7 +5,6 @@ import { CSS } from "@dnd-kit/utilities"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { cn } from "@/lib/utils"
 
-// Logo do Drageasy
 const LogoDrageasy = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
     <g fill="none" stroke="currentColor" strokeWidth="2">
@@ -15,7 +14,6 @@ const LogoDrageasy = () => (
   </svg>
 )
 
-// Ícones minimalistas no estilo ClickUp
 const IconHome = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M3 9.5L12 4L21 9.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -145,7 +143,6 @@ const IconSettings = () => (
   </svg>
 )
 
-// Mapeamento de ícones
 const iconMap: Record<string, React.ReactNode> = {
   LayoutDashboard: <IconHome />,
   Briefcase: <IconProject />,
@@ -159,7 +156,6 @@ const iconMap: Record<string, React.ReactNode> = {
   Settings: <IconSettings />,
 }
 
-// Componente para cada item do menu - modificado para ser totalmente arrastável
 const SortableMenuItem = ({ item }: { item: { id: string; label: string; icon: string } }) => {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: item.id })
 
@@ -186,7 +182,6 @@ const SortableMenuItem = ({ item }: { item: { id: string; label: string; icon: s
   )
 }
 
-// Modificar o componente Sidebar para incluir o logotipo e torná-lo sticky
 export function Sidebar({
   items,
   activeUser,
@@ -196,7 +191,6 @@ export function Sidebar({
 }) {
   return (
     <div className="w-60 bg-white border-r sticky top-0 h-screen flex flex-col font-['Inter',sans-serif]">
-      {/* Adicionar o logotipo */}
       <div className="p-4 border-b">
         <div className="flex items-center">
           <div className="text-indigo-600">

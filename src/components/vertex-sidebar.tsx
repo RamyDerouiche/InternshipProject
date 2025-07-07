@@ -101,7 +101,7 @@ export function VertexSidebar({
           <button
             type="button"
             onClick={onLogout}
-            className="mt-3 text-xs text-left text-primary hover:bg-red-500 hover:text-white"
+            className="mt-3 text-xs text-left hover:bg-red-500 hover:text-white"
           >
             Logout
           </button>

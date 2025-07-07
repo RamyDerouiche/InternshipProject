@@ -44,7 +44,6 @@ export function FinanceCard() {
               ))}
             </g>
 
-            {/* Linha do gráfico */}
             <path
               d="M0,250 C50,230 100,180 150,190 C200,200 250,150 300,140 C350,130 400,100 450,80 C500,60 550,70 600,90 C650,110 700,130 750,120 C800,110 850,90 900,100 C950,110 1000,130 1000,130"
               fill="none"
@@ -53,7 +52,6 @@ export function FinanceCard() {
               strokeLinecap="round"
             />
 
-            {/* Área sob a linha */}
             <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.5" />
               <stop offset="100%" stopColor="#8b5cf6" stopOpacity="0.0" />
@@ -63,7 +61,6 @@ export function FinanceCard() {
               fill="url(#gradient)"
             />
 
-            {/* Pontos de dados */}
             {[
               [0, 250],
               [150, 190],
@@ -78,7 +75,6 @@ export function FinanceCard() {
             ))}
           </svg>
 
-          {/* Legenda do eixo Y */}
           <div className="absolute top-0 left-0 h-full flex flex-col justify-between text-[10px] text-gray-500 py-2">
             <div>100K</div>
             <div>80K</div>
@@ -88,7 +84,6 @@ export function FinanceCard() {
             <div>0</div>
           </div>
 
-          {/* Legenda do eixo X */}
           <div className="absolute bottom-0 left-0 w-full flex justify-between text-[10px] text-gray-500 px-2">
             <div>Jan</div>
             <div>Feb</div>
